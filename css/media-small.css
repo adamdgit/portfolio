@@ -1,0 +1,110 @@
+/*-----Adam Demol 2022-----*/
+@media screen and (max-width: 1200px) {
+  .gallery {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-img img {
+    width: 100%;
+    height: unset;
+  }
+}
+
+@media only screen and (max-width: 899px){
+
+  /* Accounts for navbar height when navigating to a section */
+  html { scroll-padding-top: 50px; }
+
+  h1 { 
+    font-size: 3rem;
+  }
+
+  header {
+    margin-left: 0px;
+  }
+
+  .sticky-wrapper {
+    top: 80px;
+    padding-top: 10px;
+    height: unset;
+  }
+
+  .content-section.about {
+    display: grid;
+    gap: unset;
+  }
+
+  .header-text {
+    font-size: 2.5rem;
+  }
+
+  .content-wrap {
+    margin:30px 0 0 0;
+  }
+
+  .content-section {
+    display: grid;
+    padding: 6rem 1rem;
+  }
+
+  .project-card {
+    display: grid;
+    transform: translateX(-60%);
+  }
+
+  .project-card .left {
+    width: unset;
+    height: unset;
+    grid-row: 2;
+  }
+
+  .project-card svg {
+    top: -35px;
+  }
+
+  .about-me {
+    padding:0;
+  }
+
+  /*------------------------Navigation bar----------------------------*/
+
+  .navbar {
+    width: 100%;
+    height: 80px;
+  }
+
+  .nav-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: unset;
+    list-style: none;
+  }
+
+  .nav-item { width: 20%; }
+  .nav-link { position: unset; }
+  .nav-link svg { width: 2.2rem; }
+  .nav-link .resume { width: 1.8rem; }
+
+  .link-text {
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    border-radius: unset;
+    transition: opacity 300ms ease;
+  }
+
+  .nav-link:hover .link-text {
+    opacity: 1;
+    left: 50%;
+  }
+
+  .fa {
+    width: 80px;
+    height: 80px;
+    padding: 25px;
+  }
+
+  .fa-text { opacity: 1; }
+}

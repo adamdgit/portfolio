@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 10px;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+  touch-action: none;
+}
+
+h1 {
+  margin: 3rem 0;
+}
+
+img {
+  position: absolute;
+  height: inherit;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.image {
+  position: absolute;
+  display: block;
+  width: 435px;
+  height: 300px;
+  margin-top: 30px;
+  justify-self: center;
+}
+
+.card-wrap {
+  perspective: 1000px;
+}
+
+.card-rotate {
+  display: grid;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 322px;
+  aspect-ratio: 362/512;
+  border-radius: 10px;
+}
+
+.cardback {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: url(./pokemoncardback.png);
+  background-size: cover;
+  transform: rotate3d(0,1,0, 180deg) translate3d(0, 0, 1px);
+}
+
+.gradient, .gradient::after {
+  --space: 20%;
+  --x: ;
+  --y: ;
+  backface-visibility: hidden;
+  mix-blend-mode:soft-light;
+  border-radius: 10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 58% 45%, 
+    #00ff5a calc(var(--space)*1), 
+    #00c4ff calc(var(--space)*2), 
+    #00ffd2 calc(var(--space)*3), 
+    #7c00ff calc(var(--space)*4), 
+    #00ff5a calc(var(--space)*5), 
+    #00b8ff calc(var(--space)*6)), 
+    radial-gradient(circle at 58% 45%, 
+    #00ceff 13%, 
+    #28ff00 18%, 
+    #ec00ff 30%, 
+    #005aff 45%, 
+    #1bff00 51%);
+  background-blend-mode: difference;
+  background-size: 300%, 300%;
+  background-position: center;
+  filter: brightness(.4) contrast(1.5) saturate(5);
+}
+
+.gradient::before {
+  content: "";
+  background:  url(bg.jpg);
+  background-size: 100%;
+  background-position: var(--y) var(--x);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: color-dodge;
+  border-radius: 10px;
+}
+
+.gradient::after {
+  content: "";
+  mix-blend-mode: saturation;
+}
+
+.bg {
+  display: block;
+  background: url(./gyarados.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}

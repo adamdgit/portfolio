@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Date range picker</title>
+    <link rel="stylesheet" href="calendar.css">
+  </head>
+  <body>
+
+    <div class="form-container">
+      <h2>Vanilla Javascript date range picker</h2>
+      <form class="datepicker-form">
+
+        <div class="form-group">
+          <span class="input-wrap">
+            <label for="selected-dates">Select Dates:</label>
+            <input id="selected-dates" type="text" class="datepicker-input">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="25px"
+              viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/>
+            </svg>
+          </span>
+
+          <div class="datepicker-container" id="datepicker-container">
+            <div class="datepicker-calendar">
+              <div class="datepicker-header">
+
+                <div class="datepicker-dates">
+                  <span class="year-month">
+                    <span class="pick-year">Year:
+                      <select class="pick-year-select">
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                        <option value="2032">2032</option>
+                        <option value="2033">2033</option>
+                        <option value="2034">2034</option>
+                        <option value="2035">2035</option>
+                        <option value="2036">2036</option>
+                        <option value="2037">2037</option>
+                      </select>
+                    </span>
+                    <span class="pick-month">Month:
+                      <select class="pick-month-select">
+                        <option value="0">Jan</option>
+                        <option value="1">Feb</option>
+                        <option value="2">Mar</option>
+                        <option value="3">Apr</option>
+                        <option value="4">May</option>
+                        <option value="5">Jun</option>
+                        <option value="6">Jul</option>
+                        <option value="7">Aug</option>
+                        <option value="8">Sep</option>
+                        <option value="9">Oct</option>
+                        <option value="10">Nov</option>
+                        <option value="11">Dec</option>
+                      </select>
+                    </span>
+                  </span>
+                </div><!-- Dates -->
+
+                <div class="datepicker-days-row">
+                  <div class="day">Mon</div>
+                  <div class="day">Tue</div>
+                  <div class="day">Wed</div>
+                  <div class="day">Thu</div>
+                  <div class="day">Fri</div>
+                  <div class="day">Sat</div>
+                  <div class="day">Sun</div>
+                </div>
+              </div><!-- Header -->
+
+              <div class="datepicker-body">
+              </div><!-- Date picker body -->
+            </div><!-- Calendar -->
+          </div>
+        </div>
+        
+        <h3 style="margin-top:20px;">Days selected:</h3>
+        <div class="selected-days">
+        </div>
+
+      </form>
+    </div><!-- Form container end -->
+
+      <script src="date.js"></script>
+
+  </body>
+</html>
