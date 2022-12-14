@@ -89,7 +89,7 @@ a { text-decoration:none; }
 }
 
 .datepicker-header {
-  background:#ccc;
+  background:linear-gradient(white, #cbcbcb);
 }
 
 .datepicker-dates .pick-year-select, .pick-month-select {
@@ -171,3 +171,28 @@ a { text-decoration:none; }
 
 .highlight-range { background:#eee; color:black; }
 .today { border: 1px solid #999; }
+
+@media screen and (max-width: 600px) {
+
+  .form-container {
+    width: 350px;
+    padding-top: 20px;
+  }
+
+  .datepicker-form {
+    padding: 1rem;
+  }
+
+  .input-wrap {
+    display: grid;
+  }
+
+  .input-wrap svg {
+    bottom: 10px;
+  }
+
+  .datepicker-container {
+    top: 100px;
+  }
+
+}
