@@ -149,20 +149,30 @@ function selectedRange(e) {
 		counter++
 		fromDate = e.target
 		fromDate.classList.add('highlight-from')
-		selectInput.value = `${fromDate.value} - `
+		selectInput.value = fromDate.value
 	} else if (fromDate && counter === 1) {
-		// if true selected dates are invalid
+		// if true 2nd date occurs before the 1st, swap dates
 		if (validateDates(e.target.value, fromDate.value)) {
-			return alert('Invalid selection')
-			// else dates are valid, add selection
+			counter = 0
+			fromDate.classList.remove('highlight-from')
+			let temp = fromDate
+			fromDate = e.target
+			toDate = temp
+			toDate.classList.add('highlight-to')
+			fromDate.classList.add('highlight-from')
+			selectInput.value = fromDate.value + ' - ' + toDate.value
+			highlightSelection()
+			let numberOfDays = numberOfDaysSelected(fromDate, toDate)
+			selectedDays.innerHTML = numberOfDays
+		} else {
+			counter = 0
+			toDate = e.target
+			toDate.classList.add('highlight-to')
+			selectInput.value = selectInput.value + ' - ' + toDate.value
+			highlightSelection()
+			let numberOfDays = numberOfDaysSelected(fromDate, toDate)
+			selectedDays.innerHTML = numberOfDays
 		}
-		counter = 0
-		toDate = e.target
-		toDate.classList.add('highlight-to')
-		selectInput.value = selectInput.value + toDate.value
-		highlightSelection()
-		let numberOfDays = numberOfDaysSelected(fromDate, toDate)
-		selectedDays.innerHTML = numberOfDays
 	}
 }
 
