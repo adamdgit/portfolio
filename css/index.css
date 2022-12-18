@@ -105,7 +105,10 @@ h3 { font-size:1.5rem; }
   opacity: 1;
 }
 
-.nav-item:hover { background: linear-gradient(90deg, var(--theme-pink), var(--theme-orange)); }
+.nav-item:hover { 
+  background-color: var(--theme-pink);
+  background: linear-gradient(90deg, var(--theme-pink), var(--theme-orange)); 
+}
 .nav-link svg { width: 2.7rem; }
 .nav-link .resume {
   width: 2.4rem;
