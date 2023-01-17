@@ -316,14 +316,15 @@ header {
 }
 
 /* font-awesome links */
-.fa-bar-wrap {
+.contact-links {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   gap: 1em;
 }
 
-.fa {
+.icon {
+  position: relative;
   width: 100px;
   height: 100px;
   display: block;
@@ -332,25 +333,35 @@ header {
   transition: background 400ms ease-in-out;
 }
 
-.fa-text { 
-  margin-top: .5rem;
-  position: relative;
+.fa-github::after, .fa-linkedin::after, .fa-windows::after {
   opacity: 0;
-  transition: opacity 200ms ease-in;
+  color: white;
+  transition: opacity 300ms ease-in;
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
 }
 
-.fa svg       { fill:#fff;}
-.fa:hover     { background-color: unset; }
+.fa-linkedin::after {  content: "Linked In"; }
+.fa-github::after {  content: "Github"; }
+.fa-windows::after {  content: "Outlook"; }
 
-.address:hover ~ .fa-text,
-.address:hover ~ .fa-text, 
-.fa-linkedin:hover ~ .fa-text,
-.fa-github:hover ~ .fa-text { opacity: 100%; }
-.fa-windows   { background-color: #00afef; }
-.fa-linkedin  { background-color: #0a66c2; }
-.fa-github    { background-color: #111; }
+.fa-windows:hover::after,
+.fa-linkedin:hover::after,
+.fa-github:hover::after { opacity: 1; }
 
-.footer-text { margin-top:20px; }
+.icon svg   { fill:#fff; }
+.icon:hover { background-color: unset; }
+
+.fa-windows  { background-color: #00afef; }
+.fa-linkedin { background-color: #0a66c2; }
+.fa-github   { background-color: #111; }
+
+.footer-text { margin-top: 3rem; }
+
+/*-----Back to Top Button-----*/
 
 .btt-bubble {
   background: white;
