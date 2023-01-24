@@ -315,7 +315,6 @@ header {
   text-align: center;
 }
 
-/* font-awesome links */
 .contact-links {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
