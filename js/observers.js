@@ -34,7 +34,6 @@ const observer = new IntersectionObserver(entry => {
 
 const observer2 = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    console.log(entry)
     // slide in and make visible project cards
     if (entry.intersectionRatio > .2) {
       entry.target.style.transform = 'translateX(0%)'
