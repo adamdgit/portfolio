@@ -36,7 +36,7 @@ body {
   display: block;
   width: 439px;
   height: 613px;
-  background: url(/gyarados.webp);
+  background: url(gyarados.webp);
   background-position: center;
   background-size: cover;
   transition: 500ms cubic-bezier(.23,.73,.46,1.05);
@@ -69,7 +69,7 @@ body {
   left: -76px;
   width: 711px;
   height: 526px;
-  background: url(/gyarados-large.webp);
+  background: url(gyarados-large.webp);
   background-size: contain;
   background-repeat: no-repeat;
   transition: 500ms cubic-bezier(.23,.73,.46,1.05);
