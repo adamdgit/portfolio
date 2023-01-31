@@ -374,9 +374,9 @@ header {
 }
 
 .btt-arrow {
-  color: var(--bg-bubble);
+  color: #111;
   text-align:center;
 }
 
-.btt-arrow:visited { color: var(--bg-bubble); }
+.btt-arrow:visited { color: #111; }
 .btt-arrow:hover { color: var(--theme-orange) }
