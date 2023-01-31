@@ -30,11 +30,6 @@
     height: unset;
   }
 
-  .content-section.about {
-    display: grid;
-    gap: unset;
-  }
-
   .header-text {
     font-size: 2.5rem;
   }
