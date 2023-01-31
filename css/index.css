@@ -172,7 +172,7 @@ header {
 
 .projects-wrap {
   display: grid;
-  gap: 2rem;
+  gap: 4rem;
   margin-bottom: 100px;
 }
 
@@ -186,12 +186,12 @@ header {
   min-width: 300px;
   max-width: 1000px;
   padding: 5rem 3rem;
-  background: linear-gradient(90deg, var(--bg-primary), var(--bg-secondary));
+  background: linear-gradient(180deg, #212121 50%, transparent);
   transition: all 700ms cubic-bezier(.45,1.5,.67,.85);
-  transform: translateX(-80%);
+  transform: translateY(80%);
   opacity: 0;
   overflow: hidden;
-  box-shadow: inset 6px 7px 10px 3px #111;
+  border-radius: 40px 0 0 0;
 }
 
 .project-card .left {
