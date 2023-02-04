@@ -164,10 +164,54 @@ header {
   min-width:300px;
 }
 
+.contact-me-btn {
+  position: relative;
+  margin: 60px auto 0 auto;
+  border-radius: 5px;
+  display: grid;
+  align-items: center;
+  background-color:#2b2d2e;
+}
+
+.contact-me-btn::after {
+  content: '';
+  z-index: -1;
+  left: -4px;
+  position: absolute;
+  border-radius: 5px;
+  width: 258px;
+  height: 78px;
+  animation: borderGradient 2s ease infinite;
+  background: linear-gradient(70deg, var(--theme-orange), var(--theme-pink));
+  background-size: 300% 300%;
+  transition: 200ms ease;
+}
+
+.contact-me-btn a {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 250px;
+  height: 70px;
+}
+
+.contact-me-btn:hover::after { 
+  animation: borderGradient 1s ease infinite; 
+  box-shadow: 0 5px 15px 3px #151616; 
+}
+
+@keyframes borderGradient {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
 /*-----Projects section-----*/
 
 .content-section.projects { 
-  background: linear-gradient(90deg, #f04997 0%, #f0a926 100%); 
+  background: linear-gradient(90deg, var(--theme-pink) 0%, var(--theme-orange) 100%); 
 }
 
 .projects-wrap {
@@ -177,21 +221,19 @@ header {
 }
 
 .project-card {
-  font-size: 1.1rem;
   position: relative;
   display: flex;
   gap: 1rem;
   text-align: left;
-  width: 100%;
   min-width: 300px;
   max-width: 1000px;
-  padding: 4rem 3rem;
-  background: linear-gradient(180deg, #212121 50%, transparent);
+  padding: 3rem 2rem;
+  background: radial-gradient(circle at 60% -50px, #343434, black);
   transition: all 700ms cubic-bezier(.45,1.5,.67,.85);
   transform: translateY(80%);
   opacity: 0;
   overflow: hidden;
-  border-radius: 40px 0 0 0;
+  border-radius: 20px;
 }
 
 .project-card .left {
@@ -214,7 +256,7 @@ header {
 
 .project-card .right {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 1rem;
   width: 100%;
 }
