@@ -25,9 +25,16 @@
   }
 
   header h1 { 
-    padding: 1rem 0 3rem 0; 
+    padding: 5rem 0;
+    width: 100%;
     font-size: 1.8rem;
     text-align: center;
+  }
+
+  .contact-me-btn {
+    position: relative;
+    top: 3rem;
+    right: unset
   }
 
   .header-text-wrap {

@@ -110,7 +110,7 @@ header {
   display: grid;
   margin-left: 5rem;
   min-height:100vh;
-  background-image: url(../img/bg2.webp); /*--https://unsplash.com/photos/LGZFr5bUw7M--*/
+  background-image: url(../img/bg1.webp); /*--https://unsplash.com/photos/LGZFr5bUw7M--*/
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -118,6 +118,8 @@ header {
 
 header h1 { 
   text-align: left; 
+  padding: 0 0 10rem 0;
+  width: 40vw;
 }
 
 .header-text-wrap {
@@ -129,15 +131,16 @@ header h1 {
 }
 
 .header-text {
-  width: 60%;
+  width: 32vw;
 }
 
 .view-work-text {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   font-size: 1.2rem;
+  width: fit-content;
 }
 
 .name-large { 
@@ -155,18 +158,27 @@ header h1 {
 
 /*-----contact btn-----*/
 
-.contact-me-btn a {
+.contact-me-btn {
   position: absolute;
   top: 50px; 
   right: 50px;
-  border-radius: 5px;
-  width: 200px;
-  height: 50px;
-  color: white;
-  transition: border 400ms ease-in-out;
 }
 
-.contact-me-btn a:hover { border:2px solid white; }
+.contact-me-btn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  color: white;
+  background: var(--theme-red);
+  transition: 200ms ease-in-out;
+}
+
+.contact-me-btn a:hover { 
+  transform: scale(1.1);
+  box-shadow: 3px 3px 15px 0 #777;
+}
 
 
 /*-----Projects section-----*/
