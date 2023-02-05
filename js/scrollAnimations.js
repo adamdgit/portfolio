@@ -10,7 +10,7 @@ window.addEventListener('scroll', () => {
   if (scroll < screenHeight) {
     bttLink.setAttribute('aria-label', 'Skip to content')
     bttButton.style.transform = 'rotate(180deg)'
-    bttLink.setAttribute('href', '#about')
+    bttLink.setAttribute('href', '#Projects')
     bttLink.setAttribute('title', 'Skip to content')
   } else {
     bttLink.setAttribute('aria-label', 'Return to top')

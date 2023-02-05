@@ -16,25 +16,44 @@
   /* Accounts for navbar height when navigating to a section */
   html { scroll-padding-top: 50px; }
 
-  h1 { 
-    font-size: 3rem;
+  h1 { font-size: 3rem; }
+
+  header { 
+    padding-top: 80px;
+    margin-left: 0px; 
+    text-align: center;
   }
 
-  header {
-    margin-left: 0px;
+  header h1 { 
+    padding: 1rem 0 3rem 0; 
+    font-size: 1.8rem;
+    text-align: center;
   }
 
-  .header-text :nth-child(1) { font-size: 4rem; }
-  .header-text :nth-child(2) { font-size: 2.5rem; }
+  .header-text-wrap {
+    padding-inline: 1rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .header-text {
+    width: 100%;
+  }
+
+  .view-work-text { 
+    display: none;
+  }
+
+  .name-large { 
+    font-size: 1.2rem; 
+    font-weight: bold;
+    padding: unset;
+  }
 
   .sticky-wrapper {
     top: 80px;
     padding-top: 10px;
     height: unset;
-  }
-
-  .header-text {
-    font-size: 2.5rem;
   }
 
   .content-wrap {
@@ -48,21 +67,18 @@
 
   .project-card {
     display: grid;
+    padding: 2rem;
+    justify-items: center;
+    text-align: center;
     transform: translateX(-60%);
   }
 
-  .project-card .left {
-    width: unset;
-    height: unset;
-    grid-row: 2;
+  .project-card .right {
+    justify-items: center;
   }
 
   .project-card svg {
-    top: -35px;
-  }
-
-  .about-me {
-    padding:0;
+    width: 120px;
   }
 
   /*------------------------Navigation bar----------------------------*/
@@ -96,6 +112,7 @@
   .nav-link:hover .link-text {
     opacity: 1;
     left: 50%;
+    border-top: 2px solid var(--theme-red);
   }
 
   .fa {
