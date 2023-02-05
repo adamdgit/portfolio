@@ -131,8 +131,6 @@ header {
 .header-text :nth-child(1) { font-size: 6rem; }
 .header-text :nth-child(2) { font-size: 4rem; }
 
-/*-----Main Body section-----*/
-
 .content-wrap { margin-left: 5rem; }
 
 .content-section {
@@ -167,6 +165,7 @@ header {
   display: grid;
   align-items: center;
   background-color:#2b2d2e;
+  transition: background 400ms ease-in-out;
 }
 
 .contact-me-btn::after {
@@ -180,7 +179,7 @@ header {
   animation: borderGradient 2s ease infinite;
   background: linear-gradient(70deg, var(--theme-orange), var(--theme-pink));
   background-size: 300% 300%;
-  transition: 200ms ease;
+  transition: 400ms ease;
 }
 
 .contact-me-btn a {
@@ -192,7 +191,7 @@ header {
   width: 250px;
   height: 70px;
 }
-
+.contact-me-btn:hover { background-color: #222; }
 .contact-me-btn:hover::after { 
   animation: borderGradient 1s ease infinite; 
   box-shadow: 0 5px 15px 3px #151616; 
@@ -266,7 +265,6 @@ header {
   color: white;
   background: unset;
   border: 3px solid var(--theme-pink);
-  border-radius: 5px;
   transition: 200ms ease-in-out;
 }
 
@@ -279,7 +277,6 @@ header {
 .project-btn:hover {
   background: var(--theme-pink);
   transform: scale(1.1);
-  box-shadow: 5px 0 10px #111;
 }
 .project-btn a, 
 .project-btn a:hover, 
