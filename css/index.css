@@ -4,8 +4,8 @@
   font-size: 16px;
   font-family: 'Raleway', sans-serif;
   --text-primary:#121212;
-  --theme-blue: #4ebacd;
-  --theme-red: #FF6B6B;
+  --theme-blue: #40aabd;
+  --theme-red: #e65656;
   --bg-primary: #292F36;
 }
 
@@ -156,18 +156,14 @@ header h1 {
   place-content: center;
 }
 
-/*-----contact btn-----*/
+/*-----button styles-----*/
 
-.contact-me-btn {
-  position: absolute;
-  top: 50px; 
-  right: 50px;
-}
-
-.contact-me-btn a {
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1rem;
+  font-weight: normal;
   width: 150px;
   height: 50px;
   color: white;
@@ -175,11 +171,21 @@ header h1 {
   transition: 200ms ease-in-out;
 }
 
-.contact-me-btn a:hover { 
+.button:hover { 
   transform: scale(1.1);
   box-shadow: 3px 3px 15px 0 #777;
+  color: white;
 }
 
+.button:visited {
+  color: white;
+}
+
+.header-btn {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
 
 /*-----Projects section-----*/
 
@@ -209,11 +215,11 @@ header h1 {
 }
 
 .project-card svg {
-  width: 200px;
+  width: 140px;
   color: var(--theme-red);
 }
 
-.project-card .right {
+.project-card .project-text {
   display: grid;
   gap: 1.5rem;
   width: 100%;
@@ -224,36 +230,7 @@ header h1 {
   color: var(--theme-blue); 
 }
 
-.project-btn {
-  cursor: pointer;
-  height: 50px;
-  width: 150px;
-  background: var(--theme-red);
-  transition: 200ms ease-in-out;
-}
-
-.project-btn a {
-  display: block;
-  padding: 1rem;
-  color: white;
-  text-align: center;
-}
-
-.project-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 3px 3px 15px 0 #ccc;
-}
-
-.project-btn a:hover { color: white; }
-
 /*-----Gallery section-----*/
-
-.design-gallery {
-  padding: 0 3rem 3rem 3rem;
-  background: white;
-}
-
-.design-gallery h1 { color: #111; }
 
 .gallery {
   display: grid;
