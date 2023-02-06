@@ -1,7 +1,6 @@
 const gallery = document.querySelector('.gallery')
 const galleryImages = document.querySelectorAll('.gallery-img')
 const projectCards = document.querySelectorAll('.project-card')
-const aboutSection = document.querySelector('.about')
 
 let thresholds = []
 const steps = 100
@@ -42,15 +41,5 @@ const observer2 = new IntersectionObserver((entries) => {
   })
 }, options)
 
-const observer3 = new IntersectionObserver(entry => {
-  if (entry[0].intersectionRatio > .2) {
-    // slide in and make visible about section
-    aboutSection.style.transform = 'translateX(0px)'
-    aboutSection.style.opacity = '1'
-    observer3.disconnect()
-  }
-}, options)
-
 observer.observe(gallery)
 projectCards.forEach((card) => { observer2.observe(card) })
-observer3.observe(aboutSection)
