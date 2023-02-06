@@ -1,5 +1,5 @@
 /*-----Adam Demol 2022-----*/
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1350px) {
   .gallery {
     display: flex;
     flex-direction: column;
@@ -9,6 +9,10 @@
   .gallery-img img {
     width: 100%;
     height: auto;
+  }
+
+  header h1 { 
+    font-size: 3rem;
   }
 }
 

@@ -123,7 +123,7 @@ header h1 {
 }
 
 .header-text-wrap {
-  margin-top: 10vh;
+  margin-top: 15vh;
   padding-inline: 5rem;
   width: 100%;
   font-size: 1.4rem;
@@ -143,6 +143,7 @@ header h1 {
 .name-large { 
   font-size: 3rem;
   padding-inline: 10px;
+  line-height: 1;
 }
 
 .content-wrap { margin-left: 5rem; }
