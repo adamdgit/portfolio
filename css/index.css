@@ -127,7 +127,6 @@ header h1 {
   padding-inline: 5rem;
   width: 100%;
   font-size: 1.4rem;
-  font-weight: bolder;
 }
 
 .header-text {
@@ -135,9 +134,7 @@ header h1 {
 }
 
 .view-work-text {
-  cursor: pointer;
   display: flex;
-  align-items: center;
   gap: 10px;
   font-size: 1.2rem;
   width: fit-content;
