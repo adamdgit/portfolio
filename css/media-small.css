@@ -3,11 +3,12 @@
   .gallery {
     display: flex;
     flex-direction: column;
+    gap: 3rem;
   }
 
   .gallery-img img {
     width: 100%;
-    height: unset;
+    height: auto;
   }
 }
 
@@ -22,6 +23,8 @@
     padding-top: 80px;
     margin-left: 0px; 
     text-align: center;
+    background-image: unset;
+    background: linear-gradient(0deg, white, #e3e3e3);
   }
 
   header h1 { 
@@ -31,10 +34,14 @@
     text-align: center;
   }
 
-  .contact-me-btn {
+  .header-btn {
     position: relative;
     top: 3rem;
-    right: unset
+    right: unset;
+  }
+
+  .button {
+    margin: 0 auto;
   }
 
   .header-text-wrap {
@@ -69,7 +76,7 @@
 
   .content-section {
     display: grid;
-    padding: 0 1rem 4rem 1rem;
+    padding: 0 1rem 5rem 1rem;
   }
 
   .project-card {
@@ -129,4 +136,11 @@
   }
 
   .fa-text { opacity: 1; }
+}
+
+@media only screen and (max-width: 500px){
+  .icon {
+    width: 90px;
+    height: 90px;
+  }
 }
