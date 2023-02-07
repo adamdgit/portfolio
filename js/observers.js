@@ -1,4 +1,3 @@
-const gallery = document.querySelector('.gallery')
 const galleryImages = document.querySelectorAll('.gallery-img')
 const projectCards = document.querySelectorAll('.project-card')
 
@@ -16,24 +15,11 @@ let options = {
   threshold: thresholds
 };
 
-const observer = new IntersectionObserver(entry => {
-  let timer = 0
-  if (entry[0].intersectionRatio > .1) {
-    for (let i=0; i<galleryImages.length; i++) {
-      // set a timer for adding styles to each image in gallery
-      const timer1 = setTimeout(() => {
-        galleryImages[i].style.transform = 'scaleY(1)'
-        clearTimeout(timer1)
-      }, timer)
-      timer += 500
-    }
-    observer.disconnect()
-  }
-}, options)
+// Items have opacity of 0, but they are still visible to the Intersection
+// Observer and can have styles applied when scrolled into view
 
 const observer2 = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    // slide in and make visible project cards
     if (entry.intersectionRatio > .2) {
       entry.target.style.transform = 'translateX(0%)'
       entry.target.style.opacity = '1'
@@ -41,5 +27,15 @@ const observer2 = new IntersectionObserver((entries) => {
   })
 }, options)
 
-observer.observe(gallery)
 projectCards.forEach((card) => { observer2.observe(card) })
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.intersectionRatio > .2) {
+      entry.target.style.transform = 'scaleY(1)'
+      entry.target.style.opacity = '1'
+    }
+  })
+}, options)
+
+galleryImages.forEach((image) => { observer.observe(image) })
