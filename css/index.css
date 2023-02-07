@@ -149,7 +149,7 @@ header h1 {
 .content-wrap { margin-left: 5rem; }
 
 .content-section {
-  padding: 0 3rem 3rem 3rem;
+  padding: 0 3rem 7rem 3rem;
   display: grid;
   place-content: center;
 }
@@ -194,7 +194,6 @@ header h1 {
 .projects-wrap {
   display: grid;
   gap: 4rem;
-  margin-bottom: 100px;
 }
 
 .project-card {
@@ -242,8 +241,9 @@ header h1 {
 
 .gallery-img {
   width: 100%;
-  transition: 500ms ease;
-  transform: scaleY(0);
+  transition: 400ms ease-in-out;
+  transform: scaleY(.01);
+  opacity: 0;
 }
 
 .gallery-img img {
