@@ -5,7 +5,7 @@
   font-family: 'Raleway', sans-serif;
   --text-primary:#121212;
   --theme-blue: #40aabd;
-  --theme-red: #e65656;
+  --theme-red: #CE4646; /*#e65656 - original color, not enough contrast*/
   --bg-primary: #292F36;
 }
 
