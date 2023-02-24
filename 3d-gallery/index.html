@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="app.js" defer></script>
+</head>
+<style>
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    height: 500vh;
+  }
+
+  .perspective {
+    width: 100vw;
+    height: 400px;
+    perspective: 2000px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 20vh auto 0 auto;
+    cursor: grab;
+    padding-block: 5rem;
+  }
+
+  .wrap {
+    transform-style: preserve-3d;
+    width: 400px;
+    height: 400px;
+    transform: translateZ(55vw) rotate(-2deg);
+  }
+
+  .img {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    border-radius: 40px;
+  }
+
+  .img1 {
+    opacity: 0;
+  }
+  .img2 {
+    opacity: 1;
+  }
+  .img3 {
+    opacity: 1;
+  }
+  .img4 {
+    opacity: 1;
+  }
+  .img5 {
+    opacity: 1;
+  }
+  .img6 {
+    opacity: 0;
+  }
+  .img7 {
+    opacity: 0;
+  }
+  .img8 {
+    opacity: 0;
+  }
+
+  @media only screen and (max-width: 699px) {
+    body {
+      touch-action: none;
+    }
+
+    .img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .perspective {
+      height: 200px;
+    }
+    .wrap {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+</style>
+<body>
+
+  <h1>3D Image Galery</h1>
+  <p>Click and drag to rotate the gallery</p>
+
+  <div class="perspective">
+
+    <div class="wrap">
+      <img class="img img1" src="pic1.jpg" />
+      <img class="img img2" src="pic2.jpg" />
+      <img class="img img3" src="pic3.jpg" />
+      <img class="img img4" src="pic4.jpg" />
+      <img class="img img5" src="pic5.jpg" />
+      <img class="img img6" src="pic6.jpg" />
+      <img class="img img7" src="pic7.jpg" />
+      <img class="img img8" src="pic8.jpg" />
+    </div>
+
+  </div>
+
+</body>
+</html>
