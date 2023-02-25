@@ -1,6 +1,10 @@
+// dom elements
 const perspective = document.querySelector('.perspective');
 const wrapper = document.querySelector('.wrap');
 const images = document.querySelectorAll('.img');
+const tooltip = document.querySelector('.drag-tooltip');
+const body = document.querySelector('body');
+
 // lower rotates more quickly
 const sensitivity = 4;
 // save previous rotation
@@ -14,6 +18,24 @@ const sectionDeg = 360 / images.length;
 images.forEach((image, i) => {
   image.style.transform = `rotate3D(0,1,0,${(i+1) * sectionDeg}deg) translateZ(40vh)`;
 })
+
+// only track tooltip on large devices
+if (window.innerWidth > 700) {
+  // tooltip follows mouse cursor
+  body.addEventListener('pointermove', (e) => {
+    tooltip.style.transform = `translate(${e.clientX -75}px, ${e.clientY -50}px)`;
+  })
+
+  // on hover of perspective layer, show tooltip
+  perspective.addEventListener('mouseover', () => {
+    console.log('mouse is hovering')
+    tooltip.style.opacity = '1';
+  })
+
+  perspective.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = '0';
+  })
+}
 
 perspective.addEventListener('pointerdown', handlePointerDown);
 
