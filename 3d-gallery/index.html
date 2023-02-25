@@ -12,7 +12,10 @@
   body {
     margin: 0;
     overflow-x: hidden;
-    height: 500vh;
+    background: #221f24;
+    color: #eee;
+    min-height: 100vh;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   .perspective {
@@ -21,8 +24,7 @@
     perspective: 2000px;
     display: flex;
     justify-content: center;
-    position: relative;
-    margin: 20vh auto 0 auto;
+    margin: 0 auto;
     cursor: grab;
     padding-block: 5rem;
   }
@@ -69,6 +71,23 @@
     opacity: 0;
   }
 
+  .drag-tooltip {
+    position: absolute;
+    inset: 0;
+    width: 150px;
+    height: 150px;
+    background: #3c3042;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: opacity 400ms ease-in;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99999;
+    box-shadow: 4px 4px 20px 0px black;
+  }
+
   @media only screen and (max-width: 699px) {
     body {
       touch-action: none;
@@ -91,11 +110,14 @@
 </style>
 <body>
 
-  <h1>3D Image Galery</h1>
-  <p>Click and drag to rotate the gallery</p>
+  <span class="drag-tooltip">drag me</span>
+
+  <div style="padding-bottom: 10vh;">
+    <h1 style="text-align: center;">3D Image Galery</h1>
+    <p style="text-align: center;">Click and drag to rotate the gallery</p>
+  </div>
 
   <div class="perspective">
-
     <div class="wrap">
       <img class="img img1" src="pic1.jpg" />
       <img class="img img2" src="pic2.jpg" />
