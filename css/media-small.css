@@ -27,12 +27,11 @@
     padding-top: 80px;
     margin-left: 0px; 
     text-align: center;
-    background-image: unset;
-    background: linear-gradient(0deg, white, #e3e3e3);
+    background-image: none;
   }
 
   header h1 { 
-    padding: 5rem 0;
+    padding: 3rem 0 0 0;
     width: 100%;
     font-size: 1.8rem;
     text-align: center;
@@ -40,26 +39,19 @@
 
   .header-btn {
     position: relative;
-    top: 3rem;
-    right: unset;
-  }
-
-  .button {
     margin: 0 auto;
   }
 
   .header-text-wrap {
     padding-inline: 1rem;
     font-size: 1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
-  .header-text {
-    width: 100%;
-  }
-
-  .view-work-text { 
-    display: none;
+  .header-text { 
+    margin-block: 4rem;
+    font-size: 1.2rem;
+    width: 100%; 
   }
 
   .name-large { 
@@ -83,6 +75,10 @@
     padding: 0 1rem 5rem 1rem;
   }
 
+  .projects-wrap {
+    grid-template-columns: unset;
+  }
+
   .project-card {
     display: grid;
     padding: 2rem;
@@ -91,12 +87,15 @@
     transform: translateX(-60%);
   }
 
-  .project-card .right {
-    justify-items: center;
+  .project-btns-wrap {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
   }
 
-  .project-card svg {
-    width: 120px;
+  .project-svg {
+    width: 150px;
+    height: 150px;
   }
 
   /*------------------------Navigation bar----------------------------*/
