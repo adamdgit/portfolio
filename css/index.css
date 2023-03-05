@@ -22,7 +22,11 @@ body {
 
 a { text-decoration: none; }
 
-h1 { font-size:4rem; padding-bottom: 5rem; text-align: center; }
+h1 { 
+  font-size:4rem; 
+  padding-bottom: 5rem; 
+  text-align: center; 
+}
 h2 { font-size:2rem; }
 h3 { font-size:1.2rem; }
 
@@ -115,6 +119,7 @@ header h1 {
   text-align: left; 
   padding: 0 0 10rem 0;
   width: 40vw;
+  color: var(--theme-blue);
 }
 
 .header-text-wrap {
@@ -123,9 +128,7 @@ header h1 {
   font-size: 1.4rem;
 }
 
-.header-text {
-  width: 32vw;
-}
+.header-text { width: 32vw; }
 
 .name-large { 
   font-size: 3rem;
@@ -194,6 +197,7 @@ header h1 {
   grid-template-columns: repeat(auto-fill, minmax(500px, auto)) ;
   gap: 4rem;
   max-width: 1700px;
+  min-width: 250px;
 }
 
 .project-card {
@@ -347,6 +351,7 @@ header h1 {
   bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
+  width: 100px;
 }
 
 .fa-github::after, .fa-linkedin::after, .fa-windows::after {
