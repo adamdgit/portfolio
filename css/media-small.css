@@ -23,8 +23,12 @@
 
   h1 { font-size: 3rem; }
 
+  body, html {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+
   header { 
-    padding-top: 80px;
     margin-left: 0px; 
     text-align: center;
     background-image: none;
