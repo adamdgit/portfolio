@@ -22,7 +22,7 @@ body {
 
 a { text-decoration: none; }
 
-h1 { font-size:4rem; padding: 5rem 0; text-align: center; }
+h1 { font-size:4rem; padding-bottom: 5rem; text-align: center; }
 h2 { font-size:2rem; }
 h3 { font-size:1.2rem; }
 
@@ -137,7 +137,7 @@ header h1 {
 .content-wrap { margin-left: 5rem; }
 
 .content-section {
-  padding: 0 3rem 7rem 3rem;
+  padding: 9rem 3rem;
   display: grid;
   place-content: center;
 }
@@ -168,8 +168,20 @@ header h1 {
   color: white;
 }
 
+.header-btns-wrap {
+  display: flex; 
+  margin-top: 3rem; 
+  gap: 2rem;
+}
+
 .header-btn {
-  margin-top: 3rem;
+  width: 180px;
+  height: 60px;
+}
+
+.header-btn svg {
+  width: 30px;
+  height: 30px;
 }
 
 /*-----Projects section-----*/
@@ -228,6 +240,26 @@ header h1 {
 .project-btns-wrap svg {
   width: 30px;
   height: 30px;
+  fill: white;
+}
+
+/*-----Skills section-----*/
+
+.skills {
+  background: linear-gradient(90deg, var(--theme-blue), var(--theme-red));
+}
+
+.icons-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5rem;
+}
+
+.icons-wrap svg {
+  width: 15vw;
+  height: 15vw;
+  max-width: 250px;
+  max-height: 250px;
   fill: white;
 }
 
@@ -304,7 +336,7 @@ header h1 {
   display: block;
   color:white;
   padding: 2rem;
-  transition: background 400ms ease-in-out;
+  transition: background 200ms ease-in-out;
 }
 
 .fa-github::after, .fa-linkedin::after, .fa-windows::after {
@@ -322,7 +354,7 @@ header h1 {
 .fa-windows::after {  content: "Outlook"; }
 
 .icon svg   { fill:#fff; }
-.icon:hover { background-color: unset; }
+.icon:hover { background-color: var(--theme-red); }
 
 .fa-windows  { background-color: #00afef; }
 .fa-linkedin { background-color: #0a66c2; }

@@ -16,7 +16,7 @@
   }
 }
 
-@media only screen and (max-width: 899px){
+@media only screen and (max-width: 799px){
 
   /* Accounts for navbar height when navigating to a section */
   html { scroll-padding-top: 50px; }
@@ -37,9 +37,11 @@
     text-align: center;
   }
 
-  .header-btn {
-    position: relative;
-    margin: 0 auto;
+  .header-btns-wrap {
+    display: grid; 
+    margin-top: 3rem;
+    justify-content: center;
+    gap: 2rem;
   }
 
   .header-text-wrap {
@@ -72,7 +74,7 @@
 
   .content-section {
     display: grid;
-    padding: 0 1rem 5rem 1rem;
+    padding: 6rem 1rem;
   }
 
   .projects-wrap {
@@ -96,6 +98,16 @@
   .project-svg {
     width: 150px;
     height: 150px;
+  }
+
+  .icons-wrap {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .icons-wrap svg {
+    width: 20vw;
+    height: 20vw;
   }
 
   /*------------------------Navigation bar----------------------------*/
