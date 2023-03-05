@@ -120,7 +120,6 @@ header h1 {
 .header-text-wrap {
   margin-top: 15vh;
   padding-inline: 5rem;
-  width: 100%;
   font-size: 1.4rem;
 }
 
@@ -322,9 +321,8 @@ header h1 {
 }
 
 .contact-links {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
   gap: 1em;
 }
 
@@ -344,6 +342,13 @@ header h1 {
   height: 50px;
 }
 
+.icon span {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .fa-github::after, .fa-linkedin::after, .fa-windows::after {
   color: white;
   transition: opacity 300ms ease-in;
@@ -353,10 +358,6 @@ header h1 {
   transform: translateX(-50%);
   width: 200px;
 }
-
-.fa-linkedin::after {  content: "Linked In"; }
-.fa-github::after {  content: "Github"; }
-.fa-windows::after {  content: "Outlook"; }
 
 .icon svg   { fill:#fff; }
 .icon:hover { background-color: var(--theme-red); }
