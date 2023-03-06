@@ -265,6 +265,13 @@ header h1 {
   fill: white;
 }
 
+.icons-wrap span {
+  display: grid;
+  justify-items: center;
+  color: white;
+  gap: 1rem;
+}
+
 /*-----Gallery section-----*/
 
 .gallery {
