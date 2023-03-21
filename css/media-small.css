@@ -26,7 +26,8 @@
   header { 
     margin-left: 0px; 
     text-align: center;
-    background-image: none;
+    background-image: url(../img/mobile-bg2.webp);
+    padding-bottom: 6rem;
   }
 
   header h1 { 
@@ -38,7 +39,7 @@
 
   .header-btns-wrap {
     display: grid; 
-    margin-top: 3rem;
+    margin-top: 2rem;
     justify-content: center;
     gap: 2rem;
   }
@@ -46,7 +47,7 @@
   .header-text-wrap {
     padding-inline: 2rem;
     font-size: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .header-text { 
@@ -143,6 +144,10 @@
     opacity: 1;
     left: 50%;
     border-top: 2px solid var(--theme-red);
+  }
+
+  .contact-links {
+    gap: 1rem;
   }
 
   .fa {
