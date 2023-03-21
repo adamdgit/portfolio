@@ -36,10 +36,10 @@ h3 { font-size:1.2rem; }
 .navbar {
   pointer-events:all;
   position: fixed;
-  background: #222;
+  background: #111;
   width: 5rem;
   height: 100vh;
-  box-shadow: 0px 3px 7px #111;
+  box-shadow: 0px 3px 8px #000;
   z-index: 999;
 }
 
@@ -64,7 +64,7 @@ h3 { font-size:1.2rem; }
   position: absolute;
   top: 15px;
   left: 4rem;
-  background: #222;
+  background: #111;
   justify-content: center;
   width: 130px;
   padding: .8rem;
