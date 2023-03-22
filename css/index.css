@@ -161,6 +161,8 @@ header h1 {
   transition: all 200ms ease-in-out;
 }
 
+.button svg { transition: fill 200ms ease-in-out; }
+
 .button:hover { 
   transform: scale(1.1);
   box-shadow: 3px 3px 15px 0 #141414;
@@ -168,9 +170,7 @@ header h1 {
   color: black;
 }
 
-.button:hover svg {
-  fill: black;
-}
+.button:hover svg { fill: black; }
 
 .header-btns-wrap {
   display: flex; 
@@ -217,7 +217,7 @@ header h1 {
   position: absolute;
   width: 200px;
   height: 200px;
-  color: rgba(255, 255, 255, 0.123);
+  color: rgba(255, 255, 255, 0.1);
   transform: rotate(-30deg);
   top: -20px;
   right: -20px;
