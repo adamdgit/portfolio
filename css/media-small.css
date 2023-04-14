@@ -126,25 +126,8 @@
     list-style: none;
   }
 
-  .nav-item { width: 20%; }
-  .nav-link { position: unset; }
-  .nav-link svg { width: 2.2rem; }
-  .nav-link .resume { width: 1.8rem; }
-
-  .link-text {
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    border-radius: unset;
-    transition: opacity 300ms ease;
-  }
-
-  .nav-link:hover .link-text {
-    opacity: 1;
-    left: 50%;
-    border-top: 2px solid var(--theme-red);
-  }
+  .nav-item { width: 25%; }
+  .nav-link { position: unset; font-size: 1rem; }
 
   .contact-links {
     gap: 1rem;
