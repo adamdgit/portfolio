@@ -61,8 +61,24 @@ h3 { font-size:1.2rem; }
 .nav-link:visited { color: white; }
 .nav-link:hover { color: white; }
 
-.nav-item:hover { 
+.nav-item {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  top: 0;
+  z-index: -1;
+  position: absolute;
   background-color: var(--col2);
+  width: 0px;
+  height: 5rem;
+  display: block;
+  transition: all 300ms cubic-bezier(.76,.02,.25,1.04);
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 /*-----Header section------*/
@@ -222,7 +238,7 @@ header h1 {
   gap: 5rem;
 }
 
-.icons-wrap svg {
+.icons-wrap svg, .icons-wrap img {
   width: 15vw;
   height: 15vw;
   max-width: 250px;
