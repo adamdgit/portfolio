@@ -116,6 +116,8 @@ function updateImgVisibility(totalDeg) {
   // check every .5 degrees
   if (totalDeg % .5 === 0) 
 
+  document.querySelector(".num").innerHTML = Math.abs(images[3].style.transform.split(" ")[3].slice(0, -4) % 360)
+  
   // when rotation is > 275 and < 80 the image should be hidden
   images.forEach((image) => {
     if (Math.abs(image.style.transform.split(" ")[3].slice(0, -4) % 360) > 275 
