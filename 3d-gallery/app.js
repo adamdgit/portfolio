@@ -13,14 +13,24 @@ let prevdeg = 0;
 let deg = 0;
 // how many degrees each image takes up within a circle
 const sectionDeg = 360 / images.length;
+let isMobile = false;
 
-// set default rotation
-images.forEach((image, i) => {
-  image.style.transform = `rotate3D(0,1,0,${(i+1) * sectionDeg}deg) translateZ(40vh)`;
-})
+// different translateZ for devices which are taller than they are wide
+if (window.innerHeight > window.innerWidth) {
+  isMobile = true;
+  // set default rotation
+  images.forEach((image, i) => {
+    image.style.transform = `rotate3D(0,1,0,${(i+1) * sectionDeg}deg) translateZ(70vw)`;
+  })
+} else {
+  // set default rotation
+  images.forEach((image, i) => {
+    image.style.transform = `rotate3D(0,1,0,${(i+1) * sectionDeg}deg) translateZ(40vh)`;
+  })
+}
 
 // only track tooltip on large devices
-if (window.innerWidth > 700) {
+if (window.innerWidth > 900) {
   // tooltip follows mouse cursor
   body.addEventListener('pointermove', (e) => {
     tooltip.style.transform = `translate(${e.clientX -75}px, ${e.clientY -50}px)`;
@@ -37,27 +47,51 @@ if (window.innerWidth > 700) {
   })
 }
 
-perspective.addEventListener('pointerdown', handlePointerDown);
+perspective.addEventListener('mousedown', handlePointerDown);
+perspective.addEventListener('touchstart', handlePointerDown);
 
 function handlePointerDown(e) {
 
   e.preventDefault();
   perspective.style.cursor = 'grabbing';
-  
+
   // get mouse pos on click
-  const x = e.clientX;
+  let x = undefined;
+  
+  if (e.type === "touchstart") {
+    x = e.changedTouches[0].clientX;
+  }
+
+  if (e.type === "mousedown") {
+    x = e.clientX;
+  }
 
   // rotate the gallery
-  perspective.addEventListener('pointermove', handlePointerMove)
+  perspective.addEventListener('mousemove', handlePointerMove)
+  perspective.addEventListener('touchmove', handlePointerMove)
 
   // transform rotation of wrapper on mouse move
   function handlePointerMove(e) {
-    deg = (e.clientX - x) / sensitivity;
+
+    if (e.type === "touchmove") {
+      deg = (e.changedTouches[0].clientX - x) / sensitivity;
+    }
+  
+    if (e.type === "mousemove") {
+      deg = (e.clientX - x) / sensitivity;
+    }
+
     totalDeg = deg + prevdeg + sectionDeg;
 
     window.requestAnimationFrame(() => {
       images.forEach((image, i) => {
-        image.style.transform = `rotate3D(0,1,0,${totalDeg + (i * sectionDeg)}deg) translateZ(40vh)`;
+
+        if (isMobile) {
+          image.style.transform = `rotate3D(0,1,0,${totalDeg + (i * sectionDeg)}deg) translateZ(70vw)`;
+        } else {
+          image.style.transform = `rotate3D(0,1,0,${totalDeg + (i * sectionDeg)}deg) translateZ(40vh)`;
+        }
+
       })
       updateImgVisibility(totalDeg);
     });
@@ -66,11 +100,13 @@ function handlePointerDown(e) {
   // save current rotation value
   prevdeg += deg;
 
-  perspective.addEventListener('pointerup', handlePointerUp)
+  perspective.addEventListener('mouseup', handlePointerUp)
+  perspective.addEventListener('touchend', handlePointerUp)
 
   // remove pointermove event listener on pointerup
-  function handlePointerUp(e) {
-    perspective.removeEventListener('pointermove', handlePointerMove)
+  function handlePointerUp() {
+    perspective.removeEventListener('mousemove', handlePointerMove)
+    perspective.removeEventListener('touchmove', handlePointerMove)
     perspective.style.cursor = 'grab';
   };
 
