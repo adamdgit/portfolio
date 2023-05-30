@@ -21,7 +21,7 @@ let options = {
 const observer2 = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.intersectionRatio > .2) {
-      entry.target.style.transform = 'translateX(0%)'
+      entry.target.style.transform = 'translateY(0%)'
       entry.target.style.opacity = '1'
     }
   })
