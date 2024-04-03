@@ -319,6 +319,14 @@ nav ul li a:hover {
 
 /* Screens under 600px styles */
 @media screen and (max-width: 600px) {
+  nav {
+    padding: 2rem 1rem;
+  }
+
+  nav ul li a {
+    font-size: .9rem;
+  }
+
   .projects {
     padding: 3rem;
   }
