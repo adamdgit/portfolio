@@ -81,10 +81,10 @@ nav ul {
   gap: 1rem;
   color: var(--colour1);
   list-style: none;
-  padding: 1rem;
 }
 
 nav ul li a {
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,10 +95,6 @@ nav ul li a {
 
 nav ul li a:hover {
   border-bottom: 3px solid var(--colour1);
-}
-
-.nav-header {
-  font-size: 2rem;
 }
 
 .cta {
@@ -147,6 +143,11 @@ nav ul li a:hover {
   background: var(--colour4);
   color: var(--colour1);
   position: relative;
+  transition: all 150ms ease-in-out;
+}
+
+.project-card:hover {
+  transform: translate(3px, -3px);
   box-shadow: -8px 8px 10px 0 #999;
 }
 
@@ -314,4 +315,35 @@ nav ul li a:hover {
 
 .slide-btn:hover {
   background-color: var(--colour4);
+}
+
+/* Screens under 600px styles */
+@media screen and (max-width: 600px) {
+  .projects {
+    padding: 3rem;
+  }
+
+  .projects-wrap {
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 3rem;
+  }
+  
+  .project-card {
+    font-size: .8rem;
+    gap: 1rem;
+    padding: 7rem 2rem 2rem 2rem;
+  }
+
+  .project-card h2 {
+    font-size: 1.3rem;
+    padding-left: 2rem;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .gallery-text {
+    align-items: center;
+  }
 }
