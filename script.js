@@ -1,93 +1,98 @@
-const heading = document.querySelector("#heading");
-const heading2 = document.querySelector(".sub-heading");
-const heading3 = document.querySelector(".sub-heading2");
-const headerbg = document.querySelector(".header-bg");
+const galleryBtn = document.querySelector(".gallery-btn");
+const gallery = document.querySelector(".gallery");
+const carousel = document.querySelector(".carousel-wrap");
+const body = document.querySelector('body')
+const leftButton = document.querySelector('.slide-left')
+const rightButton = document.querySelector('.slide-right')
+const slider = document.querySelector('.slider')
+let currentIndex = 0 // keep track of middle element
+let sectionSize = 3
+let carouselItems = slider.children.length
+let translateXValues = Array.from(Array(carouselItems)) // keep track of translate values
+// start images offset by 2 images (-200%), to hide edges of carousel where images
+// are being moved to/from to create the infinite loop effect
+translateXValues.fill(-200, 0, 10)
 
-const projectsSection = document.querySelector(".projects");
-const projectCards = document.querySelectorAll(".project-card");
-
-// only show animations for large devices
-if (window.innerWidth > 700) { 
-  // create fancy animations as user scrolls down page
-  window.addEventListener("scroll", (e)=> {
-    let scrolled = window.scrollY / 20;
-  
-    if (scrolled < 1) {
-      headerbg.style.transform = `translateY(0px) skewY(${10}deg)`;
-  
-      heading.style.scale = 1;
-      heading2.style.transform = `translateX(0px)`;
-      heading3.style.transform = `translateX(0px)`;
-  
-      projectCards.forEach(card => {
-        card.style.opacity = 0;
-        card.style.transform = 'translate(10px, 100px)';
-      });
-    } 
-    else if (scrolled > 30) {
-      headerbg.style.opacity = 0;
-  
-      heading2.style.opacity = 0;
-      heading3.style.opacity = 0;
-  
-      heading.style.opacity = 0;
-      heading.style.pointerEvents = "none";
-  
-      projectsSection.style.opacity = 1;
-    } 
-    else {
-      headerbg.style.transform = `translateY(-${scrolled * 20}px) skewY(${10}deg)`;
-      headerbg.style.opacity = 1;
-      
-      heading2.style.opacity = 1;
-      heading3.style.opacity = 1;
-      heading2.style.transform = `translateX(${scrolled * 25 +'px'})`;
-      heading3.style.transform = `translateX(${-scrolled * 30 +'px'})`;
-  
-      heading.style.pointerEvents = "all";
-      heading.style.opacity = 1;
-      heading.style.scale = scrolled;
-      heading.style.transform = `translateX(${scrolled * 1.5 +'px'})`;
-  
-      projectsSection.style.opacity = 0;
-    }
-  });
-  
-  // setup observer thresholds and options
-  let thresholds = []
-  const steps = 100
-  
-  for (let i=0; i<steps; i++) {
-    let ratio = i/steps;
-    thresholds.push(ratio)
-  }
-  
-  let options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: thresholds
-  };
-  
-  // Intersection of project cards, trigger fade in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > .6) {
-        entry.target.style.transform = `translate(0px)`;
-        entry.target.style.opacity = 1;
-      }
-      if (entry.intersectionRatio > .8) {
-        entry.target.style.boxShadow = '7px 7px 0px 0px var(--colour2), 7px 7px 12px 0px var(--colour3)';
-      }
-    })
-  }, options)
-  
-  projectCards.forEach((image) => { observer.observe(image) });
-} else {
-  // reset elements for mobile
-  projectsSection.style.opacity = 1;
-  projectCards.forEach(card => {
-    card.style.opacity = 1;
-    card.style.transform = 'translate(0px)';
-    card.style.boxShadow = '7px 7px 0px 0px var(--colour2), 7px 7px 12px 0px var(--colour3)';
-  });
+// set default section size
+if (window.innerWidth < 600) {
+  body.style.setProperty('--section-size', '1')
+  sectionSize = 2
 }
+else if (window.innerWidth < 900) {
+  body.style.setProperty('--section-size', '2')
+  sectionSize = 1
+}
+else if (window.innerWidth >= 900) {
+  body.style.setProperty('--section-size', '3')
+  sectionSize = 1
+}
+
+galleryBtn.addEventListener("click", (e) => {
+  gallery.style.display = "grid";
+  gallery.style.pointerEvents = "all";
+  // allow time for transition to work after display block is set
+  setTimeout(() => {
+    gallery.style.opacity = "1";
+  }, 50);
+});
+
+document.addEventListener("click", (e) => {
+  // if user clicks on gallery backdrop, while gallery is open, we close the gallery
+  if (e.target.className === "gallery") {
+    gallery.style.opacity = "0";
+    gallery.style.pointerEvents = "none";
+    // allow time for transition to work after display block is set
+    setTimeout(() => {
+      gallery.style.display = "none";
+    }, 250);
+  }
+});
+
+// change section size when screen changes size
+window.addEventListener('resize', () => {
+  if (window.innerWidth < 600) {
+    body.style.setProperty('--section-size', '1')
+    sectionSize = 2
+  }
+  else if (window.innerWidth < 900) {
+    body.style.setProperty('--section-size', '2')
+    sectionSize = 1
+  }
+  else if (window.innerWidth >= 900) {
+    body.style.setProperty('--section-size', '3')
+    sectionSize = 3
+  }
+})
+
+leftButton.addEventListener('pointerdown', () => {
+  currentIndex--
+  if (currentIndex === -1) { currentIndex = carouselItems-1 }
+  let rightIndex = currentIndex % carouselItems
+
+  Array.from(slider.children).forEach((image, index) => {
+    image.style.opacity = '1'
+    image.style.transform = `translateX(${translateXValues[index] + 100}%)`
+    translateXValues[index] = translateXValues[index] + 100;
+  })
+
+  const rightImage = document.querySelectorAll('.slider img')[rightIndex]
+  rightImage.style.transform = `translateX(${translateXValues[rightIndex]-100*(carouselItems)}%)`
+  rightImage.style.opacity = '0'
+  translateXValues[rightIndex] = translateXValues[rightIndex]-100*(carouselItems);
+})
+
+rightButton.addEventListener('pointerdown', () => {
+  currentIndex++
+  let leftIndex = (currentIndex-1) % carouselItems
+
+  Array.from(slider.children).forEach((image, index) => {
+    image.style.opacity = '1'
+    image.style.transform = `translateX(${translateXValues[index] - 100}%)`
+    translateXValues[index] = translateXValues[index] - 100;
+  })
+
+  const leftImage = document.querySelectorAll('.slider img')[leftIndex]
+  leftImage.style.transform = `translateX(${translateXValues[leftIndex]+100*(carouselItems)}%)`
+  leftImage.style.opacity = '0'
+  translateXValues[leftIndex] = translateXValues[leftIndex]+100*(carouselItems);
+})
