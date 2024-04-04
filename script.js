@@ -1,3 +1,6 @@
+// get scrollbar width and save as a css variable
+document.documentElement.style.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + "px");
+
 const galleryBtn = document.querySelector(".gallery-btn");
 const gallery = document.querySelector(".gallery");
 const carousel = document.querySelector(".carousel-wrap");
