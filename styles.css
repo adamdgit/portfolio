@@ -264,7 +264,7 @@ nav ul li a:hover {
 
 .carousel-wrap {
   display: grid;
-  grid-template-columns: 4vw calc(92vw - 15px) 4vw;
+  grid-template-columns: 4vw calc(92vw - var(--scrollbar-width)) 4vw;
   position: relative;
   overflow-x: hidden;
   padding: 2rem 0;
@@ -279,7 +279,7 @@ nav ul li a:hover {
 
 .slider img {
   /* opacity: 0; */
-  flex: 0 0 calc(calc(92vw - 15px) / var(--section-size));
+  flex: 0 0 calc(calc(92vw - var(--scrollbar-width)) / var(--section-size));
   min-width: 100px;
   width: 100%;
   transition: transform 200ms ease;
