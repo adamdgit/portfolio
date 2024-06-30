@@ -60,17 +60,42 @@ button:hover {
   margin: 20px 0;
 }
 
-
-/*-----Steps-----*/
-
-.step1 {
-  display: grid;
-  justify-items: center;
-  gap: 2rem;
+.difficulty-images {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.difficulty-images img { transition: all 150ms ease-in; }
+.difficulty-images img:hover {
+  filter: grayscale();
 }
 
-.step2, .step3, .step4 {
+.difficulty {
   display: grid;
+  gap: 1rem;
+}
+
+.difficulty-wrap {
+  display: grid;
+  justify-content: center;
+}
+
+.difficulty-text {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.selected-image {
+  display: flex;
+  justify-content: center;
+}
+
+.game-wrap {
+  display: none;
   justify-items: center;
   opacity: 0;
   gap: 1rem;
@@ -78,19 +103,10 @@ button:hover {
   transition: 400ms opacity 300ms ease;
 }
 
-.step2 {
-  display: flex;
-  justify-content: center;
-}
-
-.step2.show, .step3.show, .step4.show {
+.game-wrap.show {
+  display: grid;
   opacity: 1;
   pointer-events: all;
-}
-
-.input-wrap {
-  display:flex; 
-  gap: 2rem;
 }
 
 .timer {
@@ -136,21 +152,6 @@ button:hover {
  display: none;
 }
 
-.image-edit-wrap {
-  opacity: 0;
-  display: grid;
-  margin: 0 auto;
-  justify-items: center;
-  align-items: center;
-  position: relative;
-  width: 400px;
-  height: 400px;
-  box-shadow: inset 0 0 10px black;
-  outline: 4px solid rgb(158, 42, 42);
-  cursor: grab;
-  overflow: hidden;
-}
-
 #resized-image {
   display: none;
 }
@@ -175,7 +176,6 @@ button:hover {
   display: grid;
   cursor: pointer;
   border:20px solid #fff;
-  border-radius: 10px;
   transition: border 50ms ease;
 }
 

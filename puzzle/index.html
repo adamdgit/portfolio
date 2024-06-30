@@ -24,34 +24,23 @@
     </div>
 
     <main>
-      <div class="step1">
-        <span class="input-wrap">
-          <label for="ImgInp">Step 1: Select an image, square images are best</label>
-          <input type="file" accept="image/*" id="imgInp" />
-        </span>
+      <div class="difficulty">
+        <h2 style="text-align: center;">Select Difficulty:</h2>
+        <div class="difficulty-wrap">
+          <div class="difficulty-text">
+            <span>Easy</span><span>Medium</span><span>Hard</span>
+          </div>
+          <div class="difficulty-images">
+            <img src="yaksparrow.png" alt="easy difficulty image" id="easy" height="200px" width="200px">
+            <img src="wave.jpg" alt="medium difficulty image" id="medium" height="200px" width="200px">
+            <img src="pillars.jpg" alt="hard difficulty image" id="hard" height="200px" width="200px">
+          </div>
+        </div>
       </div>
 
-      <div class="step2">
-        <label for="tile-count">Step 2: Choose board size</label>
-        <select name="tile-count" id="tile-count">
-          <option value="16">Easy - 4x4</option>
-          <option value="25">Medium - 5x5</option>
-          <option value="36">Hard - 6x6</option>
-        </select>
-      </div>
+      <div class="selected-image"></div>
 
-      <div class="image-edit-wrap">
-        <img id="imgOut" src="" alt="user uploaded image" draggable="false"/>
-      </div>
-
-      <div class="step3">
-        <p>Step 3: Click & drag the image to move it within the game board</p>
-        <button class="resize">Fit-image</button>
-        <button class="start-game-btn">Start Game!</button>
-      </div>
-
-      <div class="step4">
-
+      <div class="game-wrap">
         <h2>Re-create your image</h2>
         <img id="resized-image" alt="resized user uploaded image"/>
         <canvas id="canvas"></canvas>
@@ -71,7 +60,6 @@
             </span>
           </div>
         </div>
-
       </div>
       
     </main>
