@@ -31,8 +31,8 @@ let imgLeftStart, imgTopStart = 0;
 // update canvas width/height for small devices
 // same size breakpoint as used in the CSS media query
 if (window.innerWidth <= 600) {
-  width = 350;
-  height = 350;
+  width = 300;
+  height = 300;
 };
 
 // get existing highscores if any
@@ -86,9 +86,25 @@ function hideDifficultySection(difficulty) {
   const difficultyWrapper = document.querySelector('.difficulty');
   const selectedImage = document.querySelector('.selected-image');
 
-  if (difficulty === 1) selectedImage.append(easyBtn);
-  if (difficulty === 2) selectedImage.append(mediumBtn);
-  if (difficulty === 3) selectedImage.append(hardBtn);
+  const resizeImage = document.createElement('img');
+  resizeImage.height = width;
+  resizeImage.width = height; 
+
+  if (difficulty === 1) 
+  {
+    resizeImage.src = easyBtn.src;
+    selectedImage.append(resizeImage);
+  }
+  else if (difficulty === 2) 
+  {
+    resizeImage.src = mediumBtn.src;
+    selectedImage.append(resizeImage);
+  }
+  else if (difficulty === 3) 
+  {
+    resizeImage.src = hardBtn.src;
+    selectedImage.append(resizeImage);
+  }
 
   difficultyWrapper.remove();
 }

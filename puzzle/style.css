@@ -60,38 +60,34 @@ button:hover {
   margin: 20px 0;
 }
 
-.difficulty-images {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-  cursor: pointer;
-}
-.difficulty-images img { transition: all 150ms ease-in; }
-.difficulty-images img:hover {
-  filter: grayscale();
-}
-
 .difficulty {
   display: grid;
   gap: 1rem;
+  text-align: center;
 }
 
 .difficulty-wrap {
-  display: grid;
+  display: flex;
   justify-content: center;
-}
-
-.difficulty-text {
-  display: grid;
-  grid-template-columns: 200px 200px 200px;
-  justify-items: center;
   gap: 1rem;
 }
 
 .selected-image {
   display: flex;
   justify-content: center;
+}
+
+.difficulty-item {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+.difficulty-item img { 
+  transition: all 150ms ease-in-out; 
+  cursor: pointer;
+}
+.difficulty-item img:hover {
+  filter: grayscale();
 }
 
 .game-wrap {
@@ -241,7 +237,7 @@ button:hover {
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-     user-select: none;
+    user-select: none;
    }
 
   #board img {
@@ -265,14 +261,8 @@ button:hover {
     display: grid;
   }
 
-  .image-edit-wrap {
-    touch-action: none;
-    width: 350px;
-    height: 350px;
-  }
-
-  #resized-image {
-    width: 250px;
-    height: 250px;
+  .difficulty-wrap {
+    display: flex;
+    flex-direction: column;
   }
 }
