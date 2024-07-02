@@ -73,6 +73,7 @@ button:hover {
 }
 
 .selected-image {
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
 }
@@ -170,6 +171,7 @@ button:hover {
 
 #board {
   display: grid;
+  grid-template-columns: repeat(4, auto);
   cursor: pointer;
   border:20px solid #fff;
   transition: border 50ms ease;
@@ -184,18 +186,6 @@ button:hover {
     width: 70px;
     height: 70px;
   }
-}
-
-.grid-size16{
-  grid-template-columns: repeat(4, auto);
-}
-
-.grid-size25{
-  grid-template-columns: repeat(5, auto);
-}
-
-.grid-size36{
-  grid-template-columns: repeat(6, auto);
 }
 
 .winMessage {
@@ -218,9 +208,8 @@ button:hover {
   transform: translate(var(--x), var(--y));
 }
 
-#resized-image {
-  width: 400px;
-  height: 400px;
+#easy-sm, #medium-sm, #hard-sm {
+  display: none;
 }
 
 @media screen and (max-width: 600px) {
