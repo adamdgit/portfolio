@@ -69,8 +69,8 @@ function hideDifficultySection(difficulty) {
   const selectedImage = document.querySelector('.selected-image');
 
   const resizeImage = document.createElement('img');
-  resizeImage.height = width;
-  resizeImage.width = height; 
+  resizeImage.height = 200;
+  resizeImage.width = 200; 
 
   if (difficulty === 1) 
   {

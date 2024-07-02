@@ -215,7 +215,7 @@ button:hover {
 @media screen and (max-width: 600px) {
 
   main {
-    padding: 1rem 0;
+    padding: 0;
     text-align: center;
   }
 
@@ -235,7 +235,7 @@ button:hover {
   }
 
   .intro {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 2rem;
     border: unset;
     background-color: unset;
@@ -248,6 +248,10 @@ button:hover {
 
   .input-wrap {
     display: grid;
+  }
+
+  .difficulty {
+    margin-top: 2rem;
   }
 
   .difficulty-wrap {
