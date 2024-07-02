@@ -15,15 +15,15 @@ selectInput.addEventListener('focus', () => {
 	calendarID.classList.add('show')
 });
 // on click anywhere in document hide calendar
-document.addEventListener('click', () => {
+document.addEventListener('pointerdown', () => {
 	calendarID.classList.remove('show')
 });
 // on click inside of calendar prevent hide
-calendarID.addEventListener('click', (event) => {
+calendarID.addEventListener('pointerdown', (event) => {
 	event.stopPropagation()
 });
 // on click inside input prevent hide
-selectInput.addEventListener('click', (event) => {
+selectInput.addEventListener('pointerdown', (event) => {
 	event.stopPropagation()
 });
 
@@ -42,7 +42,6 @@ calcCalendarDays();
 
 // Creates each month & corresponding year into the HTML when selected
 function showHideCalendarMonths() {
-
 	let monthEl = document.querySelectorAll('.monthWrap')
 	// If month hasn't been added to html, add to html
 	if (!document.querySelector(`[data-month="${monthSelect.value}"][data-year="${yearSelect.value}"]`)) {
@@ -113,7 +112,6 @@ function calcCalendarDays() {
 
 // converts long date into short date and inserts html to calendar body
 function insertDaysHTML(date, elementClass, month) {
-
 	let convertedDate = date.toLocaleString('en-us', { day: '2-digit', month: '2-digit', year: 'numeric' });
 	let d = date.toLocaleString('en-us', { day: '2-digit' });
 	const newDay = `<option class="${elementClass}" value="${convertedDate}">${d}</option>`;
@@ -121,7 +119,6 @@ function insertDaysHTML(date, elementClass, month) {
 }
 
 function addDaysEventListeners() {
-
 	let monthEl = calendarBody.querySelector(`[data-month="${monthSelect.value}"][data-year="${yearSelect.value}"]`)
 	monthEl.childNodes.forEach(day => {
 		// highlight current date in calendar
@@ -136,7 +133,6 @@ function addDaysEventListeners() {
 
 // highlights user selected days in the calendar
 function selectedRange(e) {
-
 	if (e.target && counter === 0) {
 		// reset selection before starting new one
 		selectInput.value = ''
@@ -189,7 +185,6 @@ function validateDates(to, from) {
 }
 
 function highlightSelection() {
-
 	let monthElements = calendarBody.querySelectorAll('.monthWrap')
 	let fromDate = calendarBody.querySelector('.highlight-from')
 	let toDate = calendarBody.querySelector('.highlight-to')
