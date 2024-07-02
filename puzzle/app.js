@@ -17,6 +17,9 @@ const blankTile = 'blank';
 const easyBtn = document.getElementById('easy');
 const mediumBtn = document.getElementById('medium');
 const hardBtn = document.getElementById('hard');
+const easySmall = document.getElementById('easy-sm');
+const mediumSmall = document.getElementById('medium-sm');
+const hardSmall = document.getElementById('hard-sm');
 
 let selectedDifficulty = 1; // 1 = easy, 2 = medium, 3 = hard
 let width = 400;
@@ -54,32 +57,11 @@ hideHighscoresBtn.addEventListener('pointerdown', () => {
   highscoreEl.classList.add('hide');
 });
 
-easyBtn.addEventListener('pointerdown', () => {
-  selectedDifficulty = 1;
-  hideDifficultySection(selectedDifficulty)
-  drawTiles(easyBtn);
-  shuffleTiles(tiles);
-  insertTilesHTML();
-  startGame();
-});
 
-mediumBtn.addEventListener('pointerdown', () => {
-  selectedDifficulty = 2;
-  hideDifficultySection(selectedDifficulty)
-  drawTiles(mediumBtn);
-  shuffleTiles(tiles);
-  insertTilesHTML();
-  startGame();
-});
+easyBtn.addEventListener('pointerdown', (e) => startGame(e, 1));
+mediumBtn.addEventListener('pointerdown', (e) => startGame(e, 2));
+hardBtn.addEventListener('pointerdown', (e) => startGame(e, 3));
 
-hardBtn.addEventListener('pointerdown', () => {
-  selectedDifficulty = 3;
-  hideDifficultySection(selectedDifficulty)
-  drawTiles(hardBtn);
-  shuffleTiles(tiles);
-  insertTilesHTML();
-  startGame();
-});
 
 // hide difficulty selection area
 function hideDifficultySection(difficulty) {
@@ -109,7 +91,22 @@ function hideDifficultySection(difficulty) {
   difficultyWrapper.remove();
 }
 
-function startGame() {
+function startGame(element, difficulty) {
+  selectedDifficulty = difficulty;
+  hideDifficultySection(selectedDifficulty)
+
+  // for small devices, use small images
+  if (width === 300) {
+    if (difficulty === 1) drawTiles(easySmall);
+    if (difficulty === 2) drawTiles(mediumSmall);
+    if (difficulty === 3) drawTiles(hardSmall);
+  } else {
+    drawTiles(element.target);
+  }
+
+  shuffleTiles(tiles);
+  insertTilesHTML();
+
   // hide edit section, show game section
   gameWrap.classList.add('show');
   gameTimer();
@@ -124,21 +121,21 @@ function stopGame() {
 
 function drawTiles(img) {
   // receives an image to split into tiles
-  canvas.width = width / ROWS
-  canvas.height = height / COLUMNS
+  canvas.width = width / ROWS;
+  canvas.height = height / COLUMNS;
 
   // split image into base 64 urls and save to array
   for (let i = 0; i < ROWS; i++) {
     for (let j = 0; j < COLUMNS; j++) {
-      let tileWidth = width / ROWS
-      let tileHeight = height / COLUMNS
+      let tileWidth = width / ROWS;
+      let tileHeight = height / COLUMNS;
       // x & y co-ordinates of each tiles corner to start drawing from
-      let x = (tileWidth * j)
-      let y = (tileHeight * i)
+      let x = tileWidth * j;
+      let y = tileHeight * i;
       // find last tile to make blank
       if (x === (tileWidth * (ROWS-1)) && y === (tileHeight*(COLUMNS-1))) {
-        tiles.push(blankTile)
-        correctTileLocation.push(blankTile)
+        tiles.push(blankTile);
+        correctTileLocation.push(blankTile);
       } else {
         // draw tile
         ctx.drawImage(img, x, y, tileWidth, tileHeight, 0, 0, tileWidth, tileHeight)
@@ -158,7 +155,7 @@ function drawTiles(img) {
 function insertTilesHTML() {
   // add img elements to html and append url from tiles array
   tiles.forEach((index, element) => {
-    if(tiles[element] === blankTile) {
+    if (tiles[element] === blankTile) {
       let blank = document.createElement('div')
       blank.dataset.value = blankTile
       blank.dataset.index = tiles.indexOf(index)
@@ -395,7 +392,7 @@ function insertHighscoreHTML() {
     if (seconds == 0) seconds = '00'
     let minutes = Math.floor(score[i].Time / 60)
     if (seconds < 10 && seconds != 0) seconds = `0${seconds}`
-    li.innerHTML = `Time: ${minutes}:${seconds} - Image: `
+    li.innerHTML = `Time: ${minutes}:${seconds} - `
   }
 }
 
