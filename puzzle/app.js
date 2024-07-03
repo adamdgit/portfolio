@@ -10,8 +10,8 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const board = document.getElementById('board');
 const gameWrap = document.querySelector('.game-wrap');
-const showHighscoresBtn = document.getElementById('show-btn');
-const hideHighscoresBtn = document.getElementById('hide-btn');
+const showHighscoresBtn = document.querySelector('.show-btn');
+const hideHighscoresBtn = document.querySelector('.hide-btn');
 const blankTile = 'blank';
 
 const easyBtn = document.getElementById('easy');
@@ -61,7 +61,7 @@ hideHighscoresBtn.addEventListener('pointerdown', () => {
 easyBtn.addEventListener('pointerdown', (e) => startGame(e, 1));
 mediumBtn.addEventListener('pointerdown', (e) => startGame(e, 2));
 hardBtn.addEventListener('pointerdown', (e) => startGame(e, 3));
-
+board.addEventListener('pointerdown', moveTile);
 
 // hide difficulty selection area
 function hideDifficultySection(difficulty) {
@@ -110,13 +110,11 @@ function startGame(element, difficulty) {
   // hide edit section, show game section
   gameWrap.classList.add('show');
   gameTimer();
-  board.addEventListener('click', (e) => moveTile(e));
-  document.addEventListener('keypress', handleKeypress);
 }
 
 function stopGame() {
   timer = clearTimeout(timer);
-  board.removeEventListener('click', (e) => moveTile(e));
+  board.removeEventListener('pointerdown', moveTile);
 }
 
 function drawTiles(img) {
@@ -170,53 +168,6 @@ function insertTilesHTML() {
   })
 }
 
-function handleKeypress(e) {
-  let blank = findBlankTile();
-  let validCol = blank % COLUMNS;
-  let validRow = Math.floor(blank / ROWS);
-  let element = 0;
-
-  // add small delay to each keypress
-  const delay = setTimeout(() => {
-    // W moves tile above DOWN into blank, S moves tile below UP into blank
-    // A moves tile RIGHT of blank into blank, D moves tile LEFT of blank into blank
-    if (e.key === "s") {
-      // check if moving tile down into blank is a valid move
-      if ((blank-4) % COLUMNS === validCol && (blank-4) >= 0 ) {
-        element = document.querySelector(`[data-index='${blank-4}']`)
-        moveTile(element)
-      } else {
-        console.error('invalid move')
-      }
-    } else if (e.key === "w") {
-      // check if moving tile up into blank is a valid move
-      if ((blank+4) % COLUMNS === validCol && (blank+4) <= Number(TILE_COUNT -1)) {
-        element = document.querySelector(`[data-index='${blank+4}']`)
-        moveTile(element)
-      } else {
-        console.error('invalid move')
-      }
-    } else if (e.key === "d") {
-      // check if moving tile right into blank is a valid move
-      if (Math.floor((blank-1) / ROWS) === validRow) {
-        element = document.querySelector(`[data-index='${blank-1}']`)
-        moveTile(element)
-      } else {
-        console.error('invalid move')
-      }
-    } else if (e.key === "a") {
-      // check if moving tile left into blank is a valid move
-      if (Math.floor((blank+1) / ROWS) === validRow) {
-        element = document.querySelector(`[data-index='${blank+1}']`)
-        moveTile(element)
-      } else {
-        console.error('invalid move')
-      }
-    }
-    clearTimeout(delay)
-  }, 60)
-}
-
 function moveTile(e) {
   let blank = findBlankTile()
   let validCol = blank % COLUMNS
@@ -243,15 +194,14 @@ function moveTile(e) {
 
       // convert time to seconds only for storage
       let finalTime = (parseInt(timerMins.innerHTML) * 60) + (parseInt(timerSecs.innerHTML))
-      if (timerMins.innerHTML == 0) {
+      if (timerMins.innerHTML === 0) {
         finalTime = parseInt(timerSecs.innerHTML)
       }
-      // add score to ls & insert to HTML & stop game
+      // Add to highscores and stop game
       addHighscoreLS(finalTime);
       insertHighscoreHTML();
       stopGame();
     }
-
   // invalid move
   } else {
     board.style.border = '20px solid red'
@@ -295,7 +245,7 @@ function swapTiles(tileIndex, blank, direction) {
   else if (direction === 'up') tile.style.setProperty('--y', '-100%');
   else if (direction === 'down') tile.style.setProperty('--y', '100%');
 
-  const waitForAnimation = setTimeout(() => {
+  const animateTile = setTimeout(() => {
     // reset x & y each move to prevent wierd animations
     tile.classList.remove('animate')
     tile.style.setProperty('--x', '')
@@ -306,7 +256,7 @@ function swapTiles(tileIndex, blank, direction) {
     temp.replaceWith(tempTile)
     blankTile.dataset.index = tileIndex
     tempTile.dataset.index = blank
-    clearTimeout(waitForAnimation)
+    clearTimeout(animateTile)
   }, 60)
 
   // update tiles array with new tile index after swapping
@@ -370,8 +320,8 @@ function insertHighscoreHTML() {
   score.sort((a,b) => (a.Time - b.Time));
 
   // clear existing highscores, to re-populate
-  const highscoresWrap = document.getElementById('highscore-list');
-  highscoresWrap.innerHTML = '';
+  const highscoresList = document.querySelector('.highscore-list');
+  highscoresList.innerHTML = '';
 
   // write 10 best highscores to html
   for (let i = 0; i < score.length; i++) {
@@ -380,9 +330,9 @@ function insertHighscoreHTML() {
     const span = document.createElement('span')
     const li = document.createElement('li')
     const image = document.createElement('img')
-    highscoresWrap.appendChild(span)
-    span.appendChild(li)
-    span.appendChild(image)
+    highscoresList.appendChild(li)
+    li.appendChild(span)
+    li.appendChild(image)
     image.src = score[i].Img
     image.style.width = "100px"
     image.style.height = "100px"
@@ -392,23 +342,30 @@ function insertHighscoreHTML() {
     if (seconds == 0) seconds = '00'
     let minutes = Math.floor(score[i].Time / 60)
     if (seconds < 10 && seconds != 0) seconds = `0${seconds}`
-    li.innerHTML = `Time: ${minutes}:${seconds} - `
+    span.innerHTML = `Time: ${minutes}:${seconds} - `
   }
 }
 
+// add new time to highscores
 function addHighscoreLS(time) {
-  // add score & board size played on to Local Storage, time saved as seconds
-  const highscore = JSON.parse(localStorage.getItem('highscores')) || []
+  const highscore = getHighscoreLS();
+  // remove slowest time, only keep 10 scores
+  if (highscore.length > 10) {
+    highscore.sort((a,b) => (a.Time - b.Time));
+    highscore.pop();
+  }
+
   let newStorage = { 
     'Time': time,
-    'Img' : selectedDifficulty = 1 ? easyBtn.src 
-    : selectedDifficulty = 2 ? mediumBtn.src 
+    'Img' : selectedDifficulty === 1 ? easyBtn.src 
+    : selectedDifficulty === 2 ? mediumBtn.src 
     : hardBtn.src
   }
   highscore.push(newStorage)
   localStorage.setItem('highscores', JSON.stringify(highscore))
 }
 
+// get highscores as JSON from local storage
 function getHighscoreLS() {
   const highscore = JSON.parse(localStorage.getItem('highscores'));
   return highscore === null ? [] : highscore;

@@ -139,7 +139,7 @@ nav ul li a:hover {
   font-size: .9rem;
   display: grid;
   gap: 1.5rem;
-  padding: 8rem 3rem 3rem 3rem;
+  padding: 3rem;
   background: var(--colour4);
   color: var(--colour1);
   position: relative;
@@ -152,16 +152,7 @@ nav ul li a:hover {
 }
 
 .project-card h2 {
-  position: absolute;
-  border-left: 10px solid var(--colour2);
-  background: var(--colour1);
-  color: var(--colour5);
-  width: 100%;
-  top:0;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  padding-left: 3rem;
+
 }
 
 .project-btns {

@@ -114,7 +114,6 @@ button:hover {
 
 .highscore-wrap {
   display: grid;
-  place-items: center;
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.7);
@@ -123,50 +122,48 @@ button:hover {
 
 .highscores {
   display: grid;
-  gap: 3rem;
+  grid-template-rows: auto 1fr auto;
+  gap: 2rem;
   background-color: #333;
   border-radius: 10px;
-  padding: 2rem;
+  padding-block: 2rem;
+  height: fit-content;
   max-height: 90vh;
   overflow: auto;
   text-align: center;
+  width: 100%;
+  max-width: 750px;
+  margin: 2rem auto;
 }
 
-#highscore-list {
+.hide-btn {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.highscore-list {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 1.5rem;
+  justify-content: center;
   font-size: 1.4rem;
   list-style: none;
 }
 
-#highscore-list span {
+.highscore-list li {
   display: flex;
-  align-items: center;
   gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
 }
 
 .hide {
  display: none;
 }
 
-#resized-image {
-  display: none;
-}
-
-#tile-count {
-  cursor: pointer;
-}
-
 #canvas {
   display: none;
-}
-
-#imgOut {
-  position: absolute;
-}
-
-#imgInp {
-  border: 1px solid white;
 }
 
 #board {
@@ -178,7 +175,7 @@ button:hover {
 }
 
 #board img {
-  transition: all 50ms ease;
+  transition: all 40ms ease;
 }
 
 @media screen and (max-width: 600px) {
