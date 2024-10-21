@@ -142,20 +142,15 @@ nav ul li a:hover {
   display: grid;
   gap: 1.5rem;
   padding: 3rem;
-  color: var(--colour5);
+  background: var(--colour4);
+  color: var(--colour1);
   position: relative;
   transition: all 150ms ease-in-out;
   border-radius: 10px;
 }
 
-.project-card:hover {
-  transform: translate(0px, -5px);
-  box-shadow: 0 5px 12px 1px #bebdbd;
-}
-
 .project-card h2 {
-  color: var(--colour4);
-  border-bottom: 4px solid var(--colour2);
+  color: var(--colour1);
 }
 
 .project-btns {
@@ -196,21 +191,19 @@ nav ul li a:hover {
   align-items: center;
   gap: 10px;
   border-radius: 10px;
-  border: 4px solid var(--colour2);
-  color: var(--colour5);
+  background: var(--colour3);
+  color: var(--colour1);
   padding: .5rem .9rem;
   transition: all 150ms ease-in-out;
 }
 
 .project-btn:hover, .project-btn:hover > svg {
   background: var(--colour2);
-  color: var(--colour1);
-  fill: var(--colour1);
 }
 
 .project-btns svg {
   width: 30px;
-  fill: var(--colour5);
+  fill: var(--colour1);
   transition: all 150ms ease-in-out;
 }
 
