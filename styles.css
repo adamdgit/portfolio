@@ -5,12 +5,13 @@
   line-height: 1.4;
   font-size: 16px;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  --colour1: #f5f2f2;
-  --colour2: #a11f37;
-  --colour3: #23282c;
-  --colour4: #364d6b;
-  --colour5: #111;
-  --colour6: #373f46;
+  --colour1: #fcfcfc;
+  --colour2: #e4125f;
+  --colour3: #292526;
+  --colour4: #dd608d;
+  --colour5: #201c1d;
+  --colour6: #406165;
+  --colour7: #98cdd3;
   --section-size: 2;
   --slider-index: 1;
 }
@@ -23,7 +24,7 @@ html { scroll-behavior: smooth; }
 
 body {
   position: relative;
-  color: var(--colour4);
+  color: var(--colour5);
   background: var(--colour1);
   overflow-x: hidden;
   min-height: 100vh;
@@ -37,10 +38,6 @@ a {
 h1 { font-size: 2.4rem; }
 h2 { font-size: 1.7rem; }
 h3 { font-size: 1.1rem; }
-
-main {
-  background: var(--colour1);
-}
 
 section {
   display: grid;
@@ -71,8 +68,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--colour2);
-  color: var(--colour1);
+  background: var(--colour3);
   padding: 2rem;
   gap: 1rem;
 }
@@ -85,31 +81,30 @@ nav ul {
 }
 
 nav ul li a {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  border-bottom: 5px solid var(--colour2);
   transition: all 100ms ease-in-out;
 }
 
 nav ul li a:hover {
-  border-bottom: 3px solid var(--colour1);
+  color: var(--colour4);
 }
 
 .cta {
   width: fit-content;
-  padding: 1rem 1.6rem;
-  border: .3rem solid var(--colour3);
+  padding: .8rem 1.4rem;
+  color: var(--colour1);
+  background: var(--colour2);
+  border: .3rem solid var(--colour2);
   border-radius: 10px;
-  color: white;
   transition: 200ms ease-in-out;
   text-decoration: none;
   display: block;
-  font-size: 1.2rem;
-  color: var(--colour3);
-  box-shadow: 0px 5px, 0px 7px 10px #999;
+  font-size: 1.1rem;
+  box-shadow: 0px 5px #9e385e, 0px 7px 10px #999;
   margin-top: 1rem;
 }
 
@@ -120,12 +115,13 @@ nav ul li a:hover {
 
 .projects {
   padding: 5rem;
+  background: var(--colour3);
 }
 
 .projects h1 {
   text-align: center;
   margin-bottom: 4rem;
-  color: var(--colour4);
+  color: var(--colour1);
 }
 
 .projects-wrap {
@@ -142,11 +138,16 @@ nav ul li a:hover {
   display: grid;
   gap: 1.5rem;
   padding: 3rem;
-  background: var(--colour4);
+  background: var(--colour5);
   color: var(--colour1);
   position: relative;
   transition: all 150ms ease-in-out;
   border-radius: 10px;
+  box-shadow: 0 8px 10px 0 #222;
+  border: 3px solid var(--colour5);
+}
+.project-card:hover {
+  border: 3px solid var(--colour4);
 }
 
 .project-card h2 {
@@ -159,8 +160,8 @@ nav ul li a:hover {
 }
 
 .dark-section {
-  background: linear-gradient(135deg, var(--colour6), var(--colour3));
-  box-shadow: 0 0 20px 0 #888;
+  background: linear-gradient(0deg, var(--colour6), var(--colour7));
+  box-shadow: 0 8px 10px 0 #ccc;
 }
 
 .img {
@@ -176,16 +177,6 @@ nav ul li a:hover {
   color: var(--colour1);
 }
 
-.gallery-btn {
-  display: grid;
-  align-items: center;
-  text-align: center;
-  border-radius: 10px;
-  width: fit-content;
-  padding: .8rem 1rem;
-  transition: all 150ms ease-in-out;
-}
-
 .project-btn {
   display: flex;
   align-items: center;
@@ -198,7 +189,7 @@ nav ul li a:hover {
 }
 
 .project-btn:hover, .project-btn:hover > svg {
-  background: var(--colour2);
+  background: var(--colour4);
 }
 
 .project-btns svg {
@@ -208,6 +199,10 @@ nav ul li a:hover {
 }
 
 .gallery-btn {
+  border-radius: 10px;
+  width: fit-content;
+  padding: .8rem 1rem;
+  transition: all 150ms ease-in-out;
   border: 4px solid var(--colour1);
   background: unset;
   color: var(--colour1);
@@ -217,7 +212,7 @@ nav ul li a:hover {
 
 .gallery-btn:hover {
   background: var(--colour1);
-  color: var(--colour4);
+  color: var(--colour3);
 }
 
 .gallery-text {
@@ -231,6 +226,7 @@ nav ul li a:hover {
   z-index: 999;
   bottom: 10px;
   right: 10px;
+  fill: var(--colour7);
 }
 
 .btt-btn svg {
