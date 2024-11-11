@@ -222,12 +222,17 @@ nav ul li a:hover {
 }
 
 .btt-btn {
+  width: 46px;
+  height: 46px;
   position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 999;
   bottom: 10px;
   right: 10px;
-  fill: var(--colour3);
   border-radius: 50%;
+  background: var(--colour7);
 }
 
 .btt-btn svg {
@@ -323,12 +328,11 @@ nav ul li a:hover {
   .project-card {
     font-size: .8rem;
     gap: 1rem;
-    padding: 7rem 2rem 2rem 2rem;
+    padding: 2rem;
   }
 
   .project-card h2 {
     font-size: 1.3rem;
-    padding-left: 2rem;
   }
 
   .img {
