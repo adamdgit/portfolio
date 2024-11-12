@@ -344,7 +344,7 @@ nav ul li a:hover {
   }
 
   .carousel-wrap {
-    grid-template-columns: 4vw calc(92vw) 4vw;
+    grid-template-columns: 10vw 80vw 10vw;
   }
   
   .slider {
@@ -354,6 +354,11 @@ nav ul li a:hover {
   }
   
   .slider img {
-    flex: 0 0 calc(calc(92vw) / var(--section-size));
+    flex: 0 0 calc(calc(80vw) / var(--section-size));
+  }
+
+  .slide-btn {
+    width: 10vw;
+    height: 10vw;
   }
 }
