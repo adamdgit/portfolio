@@ -271,8 +271,8 @@ nav ul li a:hover {
   background: var(--colour1);
 }
 
-.btt-btn:hover {
-  background-color: var(--colour4);
+.btt-btn:hover > svg {
+  fill: var(--colour4);
 }
 
 .btt-btn svg {
