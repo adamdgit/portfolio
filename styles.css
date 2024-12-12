@@ -6,13 +6,11 @@
   font-size: 16px;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   --colour1: #fcfcfc;
-  --colour2: #f1f1f1;
+  --colour2: #ee4583;
   --colour3: #292526;
   --colour4: #dd608d;
   --colour5: #201c1d;
   --colour6: #1a1718;
-  --section-size: 2;
-  --slider-index: 1;
 }
 
 /* remove default styles from everything */
@@ -34,20 +32,23 @@ a {
   text-decoration: none;
 }
 
-h1 { font-size: 2.4rem; }
+h1 { font-size: 2.4rem;}
 h2 { font-size: 1.7rem; }
 h3 { font-size: 1.1rem; }
 
 section {
   display: grid;
+  justify-content: center;
   padding: 5rem 3rem;
-  margin-left: 30vw;
+  margin-left: 300px;
 }
 
 header {
+  display: grid;
+  justify-content: center;
   padding: 8rem 3rem;
   min-height: 35vh;
-  margin-left: 30vw;
+  margin-left: 300px;
 }
 
 .headline {
@@ -55,8 +56,26 @@ header {
   gap: .7rem;
 }
 
+.animation-container {
+  overflow: hidden;
+}
+
 .heading {
   font-size: 4rem;
+  line-height: 4rem;
+  animation: slideup 1s 1 normal both;
+}
+.heading2 {
+  animation: slidedown 1s .3s 1 normal both;
+  padding-bottom: 1rem;
+}
+@keyframes slideup {
+  from  { transform: translateY(100px); }
+  to    { transform: translateY(0); }
+}
+@keyframes slidedown {
+  from  { transform: translateY(-100px); }
+  to    { transform: translateY(0); }
 }
 
 .header-text {
@@ -120,14 +139,14 @@ nav ul li a:hover {
   width: fit-content;
   padding: .8rem 1.4rem;
   color: var(--colour1);
-  background: var(--colour4);
-  border: .3rem solid var(--colour4);
+  background: var(--colour2);
+  border: .3rem solid var(--colour2);
   border-radius: 5px;
   transition: 200ms ease-in-out;
   text-decoration: none;
   display: block;
   font-size: 1.1rem;
-  box-shadow: 0px 5px #9e385e, 0px 7px 10px #000;
+  box-shadow: 0px 5px #882348, 0px 7px 10px #000;
   margin-top: 1rem;
 }
 
@@ -137,15 +156,18 @@ nav ul li a:hover {
 }
 
 .projects h1 {
-  margin-bottom: 4rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .projects-wrap {
   display: grid;
   grid-template-columns: repeat(auto-fill, 600px);
+  justify-content: center;
   gap: 3rem;
-  max-width: 1300px;
-  min-width: 350px;
+  max-width: 1500px;
+  min-width: 300px;
+  width: 100%;
 }
 
 .project-card {
@@ -157,7 +179,7 @@ nav ul li a:hover {
   position: relative;
   transition: all 150ms ease-in-out;
   border-radius: 10px;
-  box-shadow: 0 6px 12px 0 #000;
+  box-shadow: 0 6px 12px 0 #111;
   border: 4px solid var(--colour3);
 }
 .project-card:hover {
@@ -194,8 +216,6 @@ nav ul li a:hover {
 
 .project-btn:hover, .project-btn:hover > svg {
   background: var(--colour4);
-  color: var(--colour6);
-  fill: var(--colour6);
 }
 
 .project-btns svg {
@@ -204,35 +224,37 @@ nav ul li a:hover {
   transition: all 150ms ease-in-out;
 }
 
+/*---- Skills section ----*/
 .dark-section {
   margin-left: unset;
   background: #141213;
   border-bottom: 1px solid var(--colour3);
   border-top: 1px solid var(--colour3);
   box-shadow: inset 0 0 20px 10px #101010;
-  padding: 5rem 3rem 5rem calc(3rem + 30vw);
+  padding: 5rem 3rem 5rem calc(3rem + 300px);
 }
 
-.gallery-btn {
-  border-radius: 10px;
-  width: fit-content;
-  padding: .8rem 1rem;
-  transition: all 150ms ease-in-out;
-  border: 4px solid var(--colour4);
-  background: unset;
-  color: var(--colour1);
-  font-size: 1rem;
-  cursor: pointer;
+.dark-section h1 {
+  text-align: center;
 }
 
-.gallery-btn:hover {
-  background: var(--colour4);
+.skills-list {
+  padding-block: 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  gap: 1.2rem;
+  justify-content: center;
+  list-style: none;
+  max-width: 900px;
+  min-width: 300px;
+  width: 100%;
 }
 
-.gallery-text {
+.skills-list li {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: .7rem;
 }
 
 .btt-btn {
@@ -246,78 +268,16 @@ nav ul li a:hover {
   bottom: 10px;
   right: 10px;
   border-radius: 50%;
-  background: var(--colour2);
+  background: var(--colour1);
+}
+
+.btt-btn:hover {
+  background-color: var(--colour4);
 }
 
 .btt-btn svg {
   height: 40px;
   width: 40px;
-}
-
-/* Gallery */
-.gallery {
-  position: fixed;
-  display: none;
-  pointer-events: none;
-  opacity: 0;
-  background: var(--colour1);
-  transition: all 300ms ease-in-out;
-  background: rgba(0,0,0, 0.7);
-  inset: 0;
-  align-items: center;
-  z-index: 9999;
-}
-
-.carousel-wrap {
-  display: grid;
-  grid-template-columns: 4vw calc(92vw - var(--scrollbar-width)) 4vw;
-  position: relative;
-  overflow-x: hidden;
-  padding: 2rem 0;
-  background-color: var(--colour1);
-}
-
-.slider {
-  display: flex;
-  transition: transform 250ms ease;
-  max-height: 600px;
-}
-
-.slider img {
-  /* opacity: 0; */
-  flex: 0 0 calc(calc(92vw - var(--scrollbar-width)) / var(--section-size));
-  min-width: 100px;
-  width: 100%;
-  transition: transform 200ms ease;
-  transform: translateX(-100%);
-  object-fit: cover;
-  max-height: 600px;
-  padding: 0 1vw;
-}
-
-.slide-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  z-index: 100;
-  cursor: pointer;
-  width: 4vw;
-  height: 4vw;
-  border-radius: 50%;
-  background: var(--colour5);
-  box-shadow: 0 4px 10px 0 black;
-}
-
-.slide-btn svg {
-  width: 2vw;
-  height: 2vw;
-  pointer-events: none;
-  fill: white;
-}
-
-.slide-btn:hover {
-  background-color: var(--colour4);
 }
 
 /* Screens under 600px styles */
@@ -347,32 +307,5 @@ nav ul li a:hover {
 
   .project-card h2 {
     font-size: 1.3rem;
-  }
-
-  .img {
-    display: none;
-  }
-
-  .gallery-text {
-    align-items: center;
-  }
-
-  .carousel-wrap {
-    grid-template-columns: 10vw 80vw 10vw;
-  }
-  
-  .slider {
-    display: flex;
-    transition: transform 250ms ease;
-    max-height: 600px;
-  }
-  
-  .slider img {
-    flex: 0 0 calc(calc(80vw) / var(--section-size));
-  }
-
-  .slide-btn {
-    width: 10vw;
-    height: 10vw;
   }
 }
