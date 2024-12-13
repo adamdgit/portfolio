@@ -9,8 +9,8 @@
   --colour2: #ee4583;
   --colour3: #292526;
   --colour4: #dd608d;
-  --colour5: #201c1d;
-  --colour6: #1a1718;
+  --colour6: #1a1819;
+  --nav-offset: 260px;
 }
 
 /* remove default styles from everything */
@@ -40,7 +40,7 @@ section {
   display: grid;
   justify-content: center;
   padding: 5rem 3rem;
-  margin-left: 300px;
+  margin-left: var(--nav-offset);
 }
 
 header {
@@ -48,7 +48,7 @@ header {
   justify-content: center;
   padding: 8rem 3rem;
   min-height: 35vh;
-  margin-left: 300px;
+  margin-left: var(--nav-offset);
 }
 
 .headline {
@@ -103,6 +103,7 @@ hr {
 nav {
   position: fixed;
   height: 100%;
+  width: var(--nav-offset);
   background: var(--colour3);
   padding: 1.2rem;
   box-shadow: 2px 0 12px 0 #111;
@@ -131,13 +132,13 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: var(--colour5);
+  background: var(--colour6);
   color: var(--colour4);
 }
 
 .cta {
   width: fit-content;
-  padding: .8rem 1.4rem;
+  padding: .7rem 1rem;
   color: var(--colour1);
   background: var(--colour2);
   border: .3rem solid var(--colour2);
@@ -145,9 +146,8 @@ nav ul li a:hover {
   transition: 200ms ease-in-out;
   text-decoration: none;
   display: block;
-  font-size: 1.1rem;
   box-shadow: 0px 5px #882348, 0px 7px 10px #000;
-  margin-top: 1rem;
+  margin-top: 1.4rem;
 }
 
 .cta:hover {
@@ -175,7 +175,7 @@ nav ul li a:hover {
   display: grid;
   gap: 1.5rem;
   padding: 3rem;
-  background: var(--colour5);
+  background: var(--colour3);
   position: relative;
   transition: all 150ms ease-in-out;
   border-radius: 10px;
@@ -189,19 +189,6 @@ nav ul li a:hover {
 .project-btns {
   display: flex;
   gap: 1rem;
-}
-
-.img {
-  width: 20rem;
-  height: 10rem;
-  object-fit: cover;
-  box-shadow: 0 6px 12px 0 #111;
-}
-
-.divider {
-  display: flex;
-  gap: 4rem;
-  color: var(--colour1);
 }
 
 .project-btn {
@@ -280,16 +267,38 @@ nav ul li a:hover {
   width: 40px;
 }
 
+.about-content {
+  padding-top: 2rem;
+  display: grid;
+  gap: 2rem;
+  max-width: 1000px;
+  min-width: 260px;
+  width: 100%;
+}
+
 .mobile-dropdown-toggle {
   display: none;
 }
 
 .show {
-  display: block;
+  pointer-events: all;
+  transform: translateX(0px);
+}
+
+@media screen and (max-width: 950px) {
+  .projects-wrap {
+    grid-template-columns: repeat(auto-fill, 400px);
+    gap: 3rem;
+  }
+
+  .project-card {
+    gap: 1rem;
+    padding: 2rem;
+  }
 }
 
 /* Screens under 600px styles */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   h1 {
     font-size: 2.5rem;
   }
@@ -308,6 +317,7 @@ nav ul li a:hover {
   }
 
   .navbar {
+    z-index: 9;
     position: absolute;
     background: var(--colour3);
     inset: 0;
@@ -315,26 +325,21 @@ nav ul li a:hover {
     height: calc(100dvh - 70px);
   }
 
-  .cta {
-    padding: .6rem 1rem;
-    font-size: 1rem;
-  }
-
   nav {
-    z-index: 99;
-    top: 0;
-    position: fixed;
+    z-index: 999;
     width: 100%;
     height: 70px;
   }
 
   nav ul {
-    display: none;
+    transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateX(-100dvw);
+    pointer-events: none;
   }
 
   header {
     margin-left: unset;
-    padding: 6rem 2rem 2rem 2rem;
+    padding: 6rem 2rem 4rem 2rem;
   }
 
   section {
