@@ -7,9 +7,10 @@
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   --colour1: #fcfcfc;
   --colour2: #ee4583;
-  --colour3: #292526;
+  --colour3: #252525;
   --colour4: #dd608d;
-  --colour6: #1a1819;
+  --colour5: #161616;
+  --colour6: #101010;
   --nav-offset: 260px;
 }
 
@@ -22,7 +23,7 @@ html { scroll-behavior: smooth; }
 body {
   position: relative;
   color: var(--colour1);
-  background: var(--colour6);
+  background: var(--colour5);
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -107,6 +108,7 @@ nav {
   background: var(--colour3);
   padding: 1.2rem;
   box-shadow: 2px 0 12px 0 #111;
+  border-bottom: 1px solid #333;
 }
 
 nav ul {
@@ -132,7 +134,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: var(--colour6);
+  background: var(--colour5);
   color: var(--colour4);
 }
 
@@ -214,9 +216,9 @@ nav ul li a:hover {
 /*---- Skills section ----*/
 .dark-section {
   margin-left: unset;
-  background: #141213;
-  border-bottom: 1px solid var(--colour3);
-  border-top: 1px solid var(--colour3);
+  background: var(--colour6);
+  border-bottom: 1px solid #333;
+  border-top: 1px solid #333;
   box-shadow: inset 0 0 20px 10px #101010;
   padding: 5rem 3rem 5rem calc(3rem + 300px);
 }
