@@ -35,7 +35,7 @@ a {
 
 h1 { font-size: 2.4rem;}
 h2 { font-size: 1.7rem; }
-h3 { font-size: 1.1rem; }
+h3 { font-size: 1.2rem; }
 
 section {
   display: grid;
@@ -182,10 +182,17 @@ nav ul li a:hover {
   transition: all 150ms ease-in-out;
   border-radius: 10px;
   box-shadow: 0 6px 12px 0 #111;
-  border: 4px solid var(--colour3);
+  border-bottom: 4px solid var(--colour4);
 }
 .project-card:hover {
-  border: 4px solid var(--colour4);
+  box-shadow: 0 6px 20px 0 #000;
+  border-bottom: 4px solid var(--colour2);
+}
+
+.tech-used {
+  display: block;
+  padding-bottom: .5rem;
+  color: #ccc;
 }
 
 .project-btns {
@@ -244,6 +251,15 @@ nav ul li a:hover {
   justify-content: center;
   align-items: center;
   gap: .7rem;
+}
+
+.react-logo:hover {
+  animation: rotate 2s infinite both ease-in-out;
+}
+
+@keyframes rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .btt-btn {
